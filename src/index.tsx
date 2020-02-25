@@ -1,6 +1,6 @@
 import DropdownMenu from "./DropdownMenu";
 import DynamicImage, { getDynamicImageURL } from "./DynamicImage";
-import Lightbox from "./Lightbox";
+import Lightbox, { LightboxProvider } from "./Lightbox";
 import Lottie from "./Lottie";
 import Modal from "./Modal";
 import VideoPlayer from "./VideoPlayer";
@@ -12,6 +12,7 @@ export {
   DynamicImage,
   getDynamicImageURL,
   Lightbox,
+  LightboxProvider,
   Lottie,
   Modal,
   VideoPlayer
