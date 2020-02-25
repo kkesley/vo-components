@@ -1,0 +1,32 @@
+import { hsl, color, rgba, hsla } from "csx";
+
+export default {
+  white: color("#FFFFFF").toString(),
+  black: hsl(0, "0%", "4%").toString(),
+  light: hsl(0, "0%", "96%").toString(),
+  dark: hsl(0, "0%", "21%").toString(),
+  primary: hsl(171, "100%", "41%").toString(),
+  info: hsl(204, "86%", "53%").toString(),
+  infoFade: hsla(204, "86%", "53%", 0.2).toString(),
+  link: hsl(217, "71%", "53%").toString(),
+  success: hsl(141, "71%", "48%").toString(),
+  warning: hsl(48, "100%", "67%").toString(),
+  danger: hsl(348, "100%", "61%").toString(),
+  dangerFade: hsla(348, "100%", "61%", 0.2).toString(),
+  blackBis: hsl(0, "0%", "7%").toString(),
+  blackTer: hsl(0, "0%", "14%").toString(),
+  greyDarker: hsl(0, "0%", "21%").toString(),
+  greyDark: hsl(0, "0%", "29%").toString(),
+  grey: hsl(0, "0%", "48%").toString(),
+  greyLight: hsl(0, "0%", "71%").toString(),
+  greyLighter: hsl(0, "0%", "86%").toString(),
+  whiteTer: hsl(0, "0%", "96%").toString(),
+  whiteBis: hsl(0, "0%", "98%").toString(),
+  overlayLighter: rgba(0, 0, 0, 0.1).toString(),
+  overlayLight: rgba(0, 0, 0, 0.2).toString(),
+  overlayDark: rgba(0, 0, 0, 0.3).toString(),
+  overlayDarker: rgba(0, 0, 0, 0.7).toString(),
+  overlayDarkest: rgba(0, 0, 0, 0.9).toString(),
+  transparent: "transparent",
+  darkBlue: "#304ffe"
+};

@@ -1,23 +1,11 @@
-/**
- * @class ExampleComponent
- */
+import DropdownMenu from "./DropdownMenu";
+import DynamicImage from "./DynamicImage";
+import Lightbox from "./Lightbox";
+import Lottie from "./Lottie";
+import Modal from "./Modal";
+import VideoPlayer from "./VideoPlayer";
+import colors from "./themes/colors";
+import screen from "./themes/screen";
 
-import * as React from 'react'
-
-import styles from './styles.css'
-
-export type Props = { text: string }
-
-export default class ExampleComponent extends React.Component<Props> {
-  render() {
-    const {
-      text
-    } = this.props
-
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
-}
+export { DropdownMenu, DynamicImage, Lightbox, Lottie, Modal, VideoPlayer };
+export const Theme = { colors, screen };
