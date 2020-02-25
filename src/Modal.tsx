@@ -1,7 +1,7 @@
 import * as React from "react";
-import * as ReactModal from "react-modal";
 import { style, classes } from "typestyle";
 import colors from "./themes/colors";
+const ReactModal = require("react-modal");
 
 const MODAL_Z_INDEX = 100;
 
