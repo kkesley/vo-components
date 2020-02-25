@@ -5,8 +5,6 @@ import colors from "./themes/colors";
 
 const MODAL_Z_INDEX = 100;
 
-ReactModal.setAppElement("#root");
-
 const styles = {
   overlay: style({
     zIndex: MODAL_Z_INDEX,
@@ -39,35 +37,40 @@ interface ModalProps {
   isBodyScrollable?: boolean;
   children: React.ReactNode;
 }
+export default class Modal extends React.Component<ModalProps> {
+  static setAppElement = (selector: string = "#root") =>
+    ReactModal.setAppElement(selector);
 
-export default function Modal({
-  isOpen,
-  onClose,
-  className,
-  overlayClassName,
-  closeTimeoutMS,
-  isBodyScrollable,
-  children
-}: ModalProps) {
-  return (
-    <>
-      <ReactModal
-        closeTimeoutMS={closeTimeoutMS}
-        isOpen={isOpen}
-        onRequestClose={onClose}
-        htmlOpenClassName={classes(!isBodyScrollable && "is-clipped")}
-        overlayClassName={classes(styles.overlay, overlayClassName)}
-        className={classes(styles.modal, className)}
-        ariaHideApp
-        role="modal"
-      >
-        <button
-          onClick={onClose}
-          className="modal-close is-large"
-          aria-label="close"
-        />
-        {children}
-      </ReactModal>
-    </>
-  );
+  render() {
+    const {
+      isOpen,
+      onClose,
+      className,
+      overlayClassName,
+      closeTimeoutMS,
+      isBodyScrollable,
+      children
+    } = this.props;
+    return (
+      <>
+        <ReactModal
+          closeTimeoutMS={closeTimeoutMS}
+          isOpen={isOpen}
+          onRequestClose={onClose}
+          htmlOpenClassName={classes(!isBodyScrollable && "is-clipped")}
+          overlayClassName={classes(styles.overlay, overlayClassName)}
+          className={classes(styles.modal, className)}
+          ariaHideApp
+          role="modal"
+        >
+          <button
+            onClick={onClose}
+            className="modal-close is-large"
+            aria-label="close"
+          />
+          {children}
+        </ReactModal>
+      </>
+    );
+  }
 }
