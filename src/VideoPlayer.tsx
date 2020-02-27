@@ -1,15 +1,15 @@
-import * as React from "react";
-import ReactPlayer from "react-player";
+import * as React from 'react'
+import ReactPlayer from 'react-player'
 
 interface VideoPlayerProps {
-  url: string;
-  poster?: string;
+  url: string
+  poster?: string
 }
 
 export default function VideoPlayer({
   // eslint-disable-next-line max-len
   url,
-  poster
+  poster,
 }: VideoPlayerProps) {
   return (
     <figure className="image is-16by9">
@@ -22,5 +22,5 @@ export default function VideoPlayer({
         url={url}
       />
     </figure>
-  );
+  )
 }

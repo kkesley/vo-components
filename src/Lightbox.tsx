@@ -1,76 +1,77 @@
-import * as React from "react";
-import Modal from "./Modal";
-import { style, classes } from "typestyle";
-import { viewWidth, viewHeight } from "csx";
-import colors from "./themes/colors";
-import { useState } from "react";
-import { useKey } from "react-use";
+import * as React from 'react'
+import Modal from './Modal'
+import { style, classes } from 'typestyle'
+import { viewWidth, viewHeight } from 'csx'
+import colors from './themes/colors'
+import { useState } from 'react'
+import { useKey } from 'react-use'
 
 const styles = {
   modal: style({
-    backgroundColor: colors.transparent
+    backgroundColor: colors.transparent,
   }),
   arrow: style({
-    position: "absolute",
-    top: "50%",
+    position: 'absolute',
+    top: '50%',
     backgroundColor: colors.transparent,
     borderColor: colors.transparent,
     color: colors.whiteBis,
     width: 70,
-    height: 70
+    height: 70,
   }),
   arrowLeft: style({
-    left: 20
+    left: 20,
   }),
   arrowRight: style({
-    right: 20
+    right: 20,
   }),
   image: style({
     maxWidth: viewWidth(80),
     maxHeight: viewHeight(80),
-    objectFit: "contain"
-  })
-};
+    objectFit: 'contain',
+  }),
+}
 
 interface ILightboxProvider {
-  open: () => any;
+  open: () => any
 }
 
 export const LightboxProvider = React.createContext<ILightboxProvider>(
   {} as ILightboxProvider
-);
+)
 
 interface LightboxProps {
-  images: string[];
-  children: React.ReactNode;
+  images: string[]
+  children: React.ReactNode
 }
 
 export default function Lightbox({ images, children }: LightboxProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [index, setIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false)
+  const [index, setIndex] = useState(0)
   const open = (index = 0) => {
-    setIndex(index);
-    setIsOpen(true);
-  };
+    setIndex(index)
+    setIsOpen(true)
+  }
   const previous = () => {
     setIndex(index => {
       if (index === 0) {
-        return images.length - 1;
+        return images.length - 1
       }
-      return index - 1;
-    });
-  };
+      return index - 1
+    })
+  }
   const next = () => {
     setIndex(index => {
       if (index === images.length - 1) {
-        return 0;
+        return 0
       }
-      return index + 1;
-    });
-  };
-  useKey("ArrowLeft", previous);
-  useKey("ArrowRight", next);
-  useKey("Escape", () => setIsOpen(false));
+      return index + 1
+    })
+  }
+  useKey('ArrowLeft', previous)
+  useKey('ArrowRight', next)
+  useKey('Escape', () => setIsOpen(false))
+  if (images.length === 0) return null
   return (
     <>
       <Modal
@@ -79,12 +80,18 @@ export default function Lightbox({ images, children }: LightboxProps) {
         className={styles.modal}
       >
         <figure className="image">
-          <img className={styles.image} src={images[index % images.length]} />
+          <img
+            alt={`Lightbox number ${index + 1}`}
+            className={styles.image}
+            src={images[index % images.length]}
+            data-id="active-image"
+          />
         </figure>
         <button
           onClick={() => previous()}
+          data-id="previous-button"
           className={classes(
-            "button is-rounded",
+            'button is-rounded',
             styles.arrow,
             styles.arrowLeft
           )}
@@ -95,8 +102,9 @@ export default function Lightbox({ images, children }: LightboxProps) {
         </button>
         <button
           onClick={() => next()}
+          data-id="next-button"
           className={classes(
-            "button is-rounded",
+            'button is-rounded',
             styles.arrow,
             styles.arrowRight
           )}
@@ -110,5 +118,5 @@ export default function Lightbox({ images, children }: LightboxProps) {
         {children}
       </LightboxProvider.Provider>
     </>
-  );
+  )
 }
