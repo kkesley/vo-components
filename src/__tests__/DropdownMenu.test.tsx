@@ -43,30 +43,5 @@ describe('DropdownMenu', () => {
         dropdown.findByProps({ 'data-id': 'dropdown-parent' }).props.className
       ).not.toContain('is-active')
     })
-    // it('gets deactivated when area outside of dropdown is clicked', () => {
-    //   const container = document.createElement('div');
-    //   document.body.appendChild(container);
-    //   ReactTestUtils.act(() => {
-    //     ReactDOM.render(
-    //       <div>
-    //         <button data-id="outside"/>
-    //         <DropdownMenu>
-    //           <div/>
-    //         </DropdownMenu>
-    //       </div>,
-    //     container);
-    //   })
-    //   const button = container.querySelector('button[data-id="dropdown-button"]') as Element
-    //   const parent = container.querySelector('div[data-id="dropdown-parent"]') as Element
-    //   const outside = container.querySelector('button[data-id="outside"]') as Element
-    //   ReactTestUtils.act(() => {
-    //     ReactTestUtils.Simulate.click(button);
-    //   })
-    //   expect(parent.className).toContain('is-active')
-    //   ReactTestUtils.act(() => {
-    //     ReactTestUtils.Simulate.click(outside);
-    //   })
-    //   expect(parent.className).not.toContain('is-active')
-    // })
   })
 })

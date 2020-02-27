@@ -41,7 +41,9 @@
   "author": "kkesley",
   "module": "dist/vo-components.esm.js",
   "jest": {
-    "setupFiles": ["jest-canvas-mock"],
+    "setupFiles": [
+      "jest-canvas-mock"
+    ],
     "browser": true,
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",
