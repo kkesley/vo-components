@@ -24,6 +24,16 @@ describe('Lightbox', () => {
     const lightbox = getComponent([])
     expect(lightbox.children.length).toBe(0)
   })
+  it('returns empty when images are undefined', () => {
+    const lightbox = renderer.create(
+      <Lightbox>
+        <LightboxProvider.Consumer>
+          {context => <div onClick={context.open} data-id="child" />}
+        </LightboxProvider.Consumer>
+      </Lightbox>
+    ).root
+    expect(lightbox.children.length).toBe(0)
+  })
   describe('When Lightbox is Closed', () => {
     it('gives context to its children', () => {
       const lightbox = getComponent()

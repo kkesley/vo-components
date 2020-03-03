@@ -41,7 +41,7 @@ export const LightboxProvider = React.createContext<ILightboxProvider>(
 )
 
 interface LightboxProps {
-  images: string[]
+  images?: string[]
   children: React.ReactNode
 }
 
@@ -54,7 +54,7 @@ export default function Lightbox({ images, children }: LightboxProps) {
   }
   const previous = () => {
     setIndex(index => {
-      if (index === 0) {
+      if (images && index === 0) {
         return images.length - 1
       }
       return index - 1
@@ -62,7 +62,7 @@ export default function Lightbox({ images, children }: LightboxProps) {
   }
   const next = () => {
     setIndex(index => {
-      if (index === images.length - 1) {
+      if (images && index === images.length - 1) {
         return 0
       }
       return index + 1
@@ -71,7 +71,13 @@ export default function Lightbox({ images, children }: LightboxProps) {
   useKey('ArrowLeft', previous)
   useKey('ArrowRight', next)
   useKey('Escape', () => setIsOpen(false))
-  if (images.length === 0) return null
+  const currentImage = React.useMemo(() => {
+    if (images) {
+      return images[index % images.length]
+    }
+    return undefined
+  }, [images, index])
+  if (!currentImage) return null
   return (
     <>
       <Modal
@@ -83,7 +89,7 @@ export default function Lightbox({ images, children }: LightboxProps) {
           <img
             alt={`Lightbox number ${index + 1}`}
             className={styles.image}
-            src={images[index % images.length]}
+            src={currentImage}
             data-id="active-image"
           />
         </figure>
