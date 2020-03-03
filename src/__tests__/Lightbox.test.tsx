@@ -22,17 +22,17 @@ const getComponent = (images?: string[]) =>
 describe('Lightbox', () => {
   it('returns empty children if images are empty', () => {
     const lightbox = getComponent([])
-    expect(lightbox.children.length).toBe(0)
+    expect(lightbox.findAllByType(Modal).length).toBe(0)
+    expect(lightbox.findAllByProps({ 'data-id': 'child' }).length).toBe(1)
   })
   it('returns empty when images are undefined', () => {
     const lightbox = renderer.create(
       <Lightbox>
-        <LightboxProvider.Consumer>
-          {context => <div onClick={context.open} data-id="child" />}
-        </LightboxProvider.Consumer>
+        <div data-id="child" />
       </Lightbox>
     ).root
-    expect(lightbox.children.length).toBe(0)
+    expect(lightbox.findAllByType(Modal).length).toBe(0)
+    expect(lightbox.findAllByProps({ 'data-id': 'child' }).length).toBe(1)
   })
   describe('When Lightbox is Closed', () => {
     it('gives context to its children', () => {

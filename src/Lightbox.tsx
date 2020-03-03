@@ -53,6 +53,7 @@ export default function Lightbox({ images, children }: LightboxProps) {
     setIsOpen(true)
   }
   const previous = () => {
+    if (!isOpen) return
     setIndex(index => {
       if (images && index === 0) {
         return images.length - 1
@@ -61,6 +62,7 @@ export default function Lightbox({ images, children }: LightboxProps) {
     })
   }
   const next = () => {
+    if (!isOpen) return
     setIndex(index => {
       if (images && index === images.length - 1) {
         return 0
@@ -77,49 +79,50 @@ export default function Lightbox({ images, children }: LightboxProps) {
     }
     return undefined
   }, [images, index])
-  if (!currentImage) return null
   return (
     <>
-      <Modal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        className={styles.modal}
-      >
-        <figure className="image">
-          <img
-            alt={`Lightbox number ${index + 1}`}
-            className={styles.image}
-            src={currentImage}
-            data-id="active-image"
-          />
-        </figure>
-        <button
-          onClick={() => previous()}
-          data-id="previous-button"
-          className={classes(
-            'button is-rounded',
-            styles.arrow,
-            styles.arrowLeft
-          )}
+      {currentImage && (
+        <Modal
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          className={styles.modal}
         >
-          <span className="icon">
-            <i className="fas fa-chevron-left" />
-          </span>
-        </button>
-        <button
-          onClick={() => next()}
-          data-id="next-button"
-          className={classes(
-            'button is-rounded',
-            styles.arrow,
-            styles.arrowRight
-          )}
-        >
-          <span className="icon">
-            <i className="fas fa-chevron-right" />
-          </span>
-        </button>
-      </Modal>
+          <figure className="image">
+            <img
+              alt={`Lightbox number ${index + 1}`}
+              className={styles.image}
+              src={currentImage}
+              data-id="active-image"
+            />
+          </figure>
+          <button
+            onClick={() => previous()}
+            data-id="previous-button"
+            className={classes(
+              'button is-rounded',
+              styles.arrow,
+              styles.arrowLeft
+            )}
+          >
+            <span className="icon">
+              <i className="fas fa-chevron-left" />
+            </span>
+          </button>
+          <button
+            onClick={() => next()}
+            data-id="next-button"
+            className={classes(
+              'button is-rounded',
+              styles.arrow,
+              styles.arrowRight
+            )}
+          >
+            <span className="icon">
+              <i className="fas fa-chevron-right" />
+            </span>
+          </button>
+        </Modal>
+      )}
       <LightboxProvider.Provider value={{ open }}>
         {children}
       </LightboxProvider.Provider>
