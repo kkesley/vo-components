@@ -33,7 +33,7 @@ const styles = {
 }
 
 interface ILightboxProvider {
-  open: () => any
+  open: (index?: number) => any
 }
 
 export const LightboxProvider = React.createContext<ILightboxProvider>(

@@ -14,7 +14,7 @@ const getComponent = (images?: string[]) =>
   renderer.create(
     <Lightbox images={images || defaultImages}>
       <LightboxProvider.Consumer>
-        {context => <div onClick={context.open} data-id="child" />}
+        {context => <div onClick={() => context.open()} data-id="child" />}
       </LightboxProvider.Consumer>
     </Lightbox>
   ).root
