@@ -5,9 +5,11 @@ import { style, classes } from 'typestyle'
 const styles = {
   coverContainer: style({
     height: '100%',
-  }),
-  coverFit: style({
-    objectFit: 'cover',
+    $nest: {
+      '& video': {
+        objectFit: 'cover',
+      },
+    },
   }),
 }
 
@@ -36,7 +38,7 @@ export default function VideoPlayer({
       <ReactPlayer
         light={poster || false}
         controls
-        className={classes('has-ratio', isCover && styles.coverFit)}
+        className="has-ratio"
         width="100%"
         height="100%"
         url={url}
