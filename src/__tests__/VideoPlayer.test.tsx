@@ -22,7 +22,7 @@ describe('VideoPlayer', () => {
     })
     it('correctly assign `light` props when poster is a string', () => {
       const player = renderer.create(
-        <VideoPlayer url="test.mp4" poster="poster.png" />
+        <VideoPlayer url="test.mp4" isCover poster="poster.png" />
       ).root
       expect(player.findByType(ReactPlayer).props.light).toEqual('poster.png')
     })
