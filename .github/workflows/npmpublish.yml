@@ -25,10 +25,10 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - name: Get the version
+      - name: Get package version from git tag
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-      - run: npm version ${{ steps.get_version.outputs.VERSION }}
+      - run: npm version ${{ steps.get_version.outputs.VERSION }} --no-commit-hooks --no-git-tag-version
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
