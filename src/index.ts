@@ -12,4 +12,4 @@ export {
   default as useColumns,
   calculateColumnOriginalIndex,
 } from './hooks/useColumns'
-export { default as getMedia, isLocalUrl } from './helpers/getMedia'
+export { default as getMedia, isLocalUrl, MediaType } from './helpers/getMedia'
