@@ -1,6 +1,6 @@
 import { useWindowSize } from 'react-use'
 import { useMemo } from 'react'
-import screen from './themes/screen'
+import screen from '../themes/screen'
 
 interface ColumnCount {
   phone: number

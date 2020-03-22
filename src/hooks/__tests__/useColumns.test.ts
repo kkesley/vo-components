@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks'
 import useColumns, { calculateColumnOriginalIndex } from '../useColumns'
-import screen from '../themes/screen'
+import screen from '../../themes/screen'
 
 const originalInnerWidth = window.innerWidth
 const changeInnerWidth = (value: number) =>
