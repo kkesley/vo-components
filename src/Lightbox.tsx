@@ -70,8 +70,8 @@ export default function Lightbox({ images, children }: LightboxProps) {
       return index + 1
     })
   }
-  useKey('ArrowLeft', previous)
-  useKey('ArrowRight', next)
+  useKey('ArrowLeft', previous, undefined, [isOpen])
+  useKey('ArrowRight', next, undefined, [isOpen])
   useKey('Escape', () => setIsOpen(false))
   const currentImage = React.useMemo(() => {
     if (images) {
