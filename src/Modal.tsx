@@ -64,7 +64,7 @@ export default class Modal extends React.Component<ModalProps> {
       >
         <button
           onClick={onClose}
-          data-id="close-button"
+          data-testid="close-button"
           className="modal-close is-large"
           aria-label="close"
         />

@@ -1,8 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-// import ReactDOM from 'react-dom';
-// import ReactTestUtils from 'react-dom/test-utils'
 import DropdownMenu from '../DropdownMenu'
+import { render, fireEvent } from '@testing-library/react'
 
 describe('DropdownMenu', () => {
   it('passes children given to it', () => {
@@ -21,7 +20,8 @@ describe('DropdownMenu', () => {
         </DropdownMenu>
       ).root
       expect(
-        dropdown.findByProps({ 'data-id': 'dropdown-parent' }).props.className
+        dropdown.findByProps({ 'data-testid': 'dropdown-parent' }).props
+          .className
       ).not.toContain('is-active')
     })
     it('gets toggled when trigger button is clicked', () => {
@@ -31,17 +31,41 @@ describe('DropdownMenu', () => {
         </DropdownMenu>
       ).root
       renderer.act(() =>
-        dropdown.findByProps({ 'data-id': 'dropdown-button' }).props.onClick()
+        dropdown
+          .findByProps({ 'data-testid': 'dropdown-button' })
+          .props.onClick()
       )
       expect(
-        dropdown.findByProps({ 'data-id': 'dropdown-parent' }).props.className
+        dropdown.findByProps({ 'data-testid': 'dropdown-parent' }).props
+          .className
       ).toContain('is-active')
       renderer.act(() =>
-        dropdown.findByProps({ 'data-id': 'dropdown-button' }).props.onClick()
+        dropdown
+          .findByProps({ 'data-testid': 'dropdown-button' })
+          .props.onClick()
       )
       expect(
-        dropdown.findByProps({ 'data-id': 'dropdown-parent' }).props.className
+        dropdown.findByProps({ 'data-testid': 'dropdown-parent' }).props
+          .className
       ).not.toContain('is-active')
+    })
+    it('gets deactivated when area outside of dropdown is clicked', () => {
+      const { getByTestId } = render(
+        <div>
+          <div data-testid="outside">outside</div>
+          <DropdownMenu>
+            <div />
+          </DropdownMenu>
+        </div>
+      )
+
+      const button = getByTestId('dropdown-button')
+      const parent = getByTestId('dropdown-parent')
+      expect(parent.className).not.toContain('is-active')
+      fireEvent.click(button)
+      expect(parent.className).toContain('is-active')
+      fireEvent.mouseDown(getByTestId('outside'))
+      expect(parent.className).not.toContain('is-active')
     })
   })
 })

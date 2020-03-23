@@ -92,12 +92,12 @@ export default function Lightbox({ images, children }: LightboxProps) {
               alt={`Lightbox number ${index + 1}`}
               className={styles.image}
               src={currentImage}
-              data-id="active-image"
+              data-testid="active-image"
             />
           </figure>
           <button
             onClick={() => previous()}
-            data-id="previous-button"
+            data-testid="previous-button"
             className={classes(
               'button is-rounded',
               styles.arrow,
@@ -110,7 +110,7 @@ export default function Lightbox({ images, children }: LightboxProps) {
           </button>
           <button
             onClick={() => next()}
-            data-id="next-button"
+            data-testid="next-button"
             className={classes(
               'button is-rounded',
               styles.arrow,
