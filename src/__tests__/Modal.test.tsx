@@ -25,7 +25,7 @@ describe('Modal', () => {
       </Modal>
     ).root
     renderer.act(() =>
-      modal.findByProps({ 'data-id': 'close-button' }).props.onClick()
+      modal.findByProps({ 'data-testid': 'close-button' }).props.onClick()
     )
     expect(closeFn).toBeCalled()
   })

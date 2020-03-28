@@ -27,7 +27,7 @@ export default function DropdownMenu(props: DropdownMenuProps) {
   useClickAway(dropdownRef, () => setIsDropdownActive(false))
   return (
     <div
-      data-id="dropdown-parent"
+      data-testid="dropdown-parent"
       ref={dropdownRef}
       className={classes(
         'dropdown is-pulled-right',
@@ -37,7 +37,7 @@ export default function DropdownMenu(props: DropdownMenuProps) {
     >
       <div className="dropdown-trigger">
         <button
-          data-id="dropdown-button"
+          data-testid="dropdown-button"
           onClick={() => setIsDropdownActive(!isDropdownActive)}
           className={classes('button is-dark is-radiusless', className)}
           aria-haspopup="true"
