@@ -1,4 +1,11 @@
 import * as React from 'react'
+import { style } from 'typestyle'
+
+const styles = {
+  image: style({
+    objectFit: 'cover',
+  }),
+}
 
 interface DynamicImageURLProps {
   src: string
@@ -16,5 +23,11 @@ interface DynamicImageProps extends DynamicImageURLProps {
 
 export default function DynamicImage(props: DynamicImageProps) {
   const { alt, src, width } = props
-  return <img alt={alt} src={getDynamicImageURL({ src, width })} />
+  return (
+    <img
+      className={styles.image}
+      alt={alt}
+      src={getDynamicImageURL({ src, width })}
+    />
+  )
 }
