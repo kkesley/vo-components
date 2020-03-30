@@ -52,5 +52,5 @@ export function calculateColumnOriginalIndex(
   itemIndex: number,
   columnCount: number
 ): number {
-  return columnIndex * columnCount + itemIndex
+  return itemIndex * columnCount + columnIndex
 }
