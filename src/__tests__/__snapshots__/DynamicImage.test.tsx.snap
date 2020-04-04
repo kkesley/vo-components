@@ -3,11 +3,11 @@
 exports[`DynamicImage correctly creates source(s) when srcSet is configured 1`] = `
 <picture>
   <source
-    media="(max-width: 1920)"
+    media="(max-width: 1920px)"
     srcSet="1280/test.jpg"
   />
   <source
-    media="(max-width: 720)"
+    media="(max-width: 720px)"
     srcSet="480/test.jpg"
   />
   <img

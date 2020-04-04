@@ -36,7 +36,7 @@ export default function DynamicImage(props: DynamicImageProps) {
       {(srcSet || []).map((config, index) => (
         <source
           key={`img-${alt}-${index}`}
-          media={`(max-width: ${config.maxScreenWidth})`}
+          media={`(max-width: ${config.maxScreenWidth}px)`}
           srcSet={getDynamicImageURL({ src, width: config.imageWidth })}
         />
       ))}
