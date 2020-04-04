@@ -7,27 +7,44 @@ const styles = {
   }),
 }
 
-interface DynamicImageURLProps {
-  src: string
-  width: number
+export type ImageSize = 1920 | 1280 | 1080 | 720 | 480 | 320 | 120 | 50
+
+interface ResponsiveConfig {
+  maxScreenWidth: number
+  imageWidth: ImageSize
 }
 
-export const getDynamicImageURL = (props: DynamicImageURLProps) => {
+interface DynamicImageURLArgs {
+  src: string
+  width: ImageSize
+}
+
+export const getDynamicImageURL = (props: DynamicImageURLArgs) => {
   const { src, width } = props
   return src.replace('{dimension}', width.toString())
 }
 
-interface DynamicImageProps extends DynamicImageURLProps {
+interface DynamicImageProps extends DynamicImageURLArgs {
   alt?: string
+  srcSet?: ResponsiveConfig[]
 }
 
 export default function DynamicImage(props: DynamicImageProps) {
-  const { alt, src, width } = props
+  const { alt, src, width, srcSet } = props
   return (
-    <img
-      className={styles.image}
-      alt={alt}
-      src={getDynamicImageURL({ src, width })}
-    />
+    <picture>
+      {(srcSet || []).map((config, index) => (
+        <source
+          key={`img-${alt}-${index}`}
+          media={`(max-width: ${config.maxScreenWidth})`}
+          srcSet={getDynamicImageURL({ src, width: config.imageWidth })}
+        />
+      ))}
+      <img
+        className={styles.image}
+        alt={alt}
+        src={getDynamicImageURL({ src, width })}
+      />
+    </picture>
   )
 }

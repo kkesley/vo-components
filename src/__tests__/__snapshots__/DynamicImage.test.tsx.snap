@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DynamicImage correctly creates source(s) when srcSet is configured 1`] = `
+<picture>
+  <source
+    media="(max-width: 1920)"
+    srcSet="1280/test.jpg"
+  />
+  <source
+    media="(max-width: 720)"
+    srcSet="480/test.jpg"
+  />
+  <img
+    className="f5u4fpt"
+    src="1920/test.jpg"
+  />
+</picture>
+`;
