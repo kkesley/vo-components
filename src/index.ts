@@ -3,7 +3,11 @@ import screen from './themes/screen'
 
 export const Theme = { colors, screen }
 export { default as DropdownMenu } from './DropdownMenu'
-export { default as DynamicImage, getDynamicImageURL } from './DynamicImage'
+export {
+  default as DynamicImage,
+  getDynamicImageURL,
+  ImageSize,
+} from './DynamicImage'
 export { default as Lightbox, LightboxProvider } from './Lightbox'
 export { default as Lottie } from './Lottie'
 export { default as Modal } from './Modal'
