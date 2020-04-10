@@ -1,5 +1,5 @@
 import * as React from 'react'
-import ReactPlayer from 'react-player'
+import ReactPlayer, { ReactPlayerProps } from 'react-player'
 import { style, classes } from 'typestyle'
 
 const styles = {
@@ -13,10 +13,7 @@ const styles = {
   }),
 }
 
-interface VideoPlayerProps {
-  // url of the video
-  url: string
-
+interface VideoPlayerProps extends ReactPlayerProps {
   // if set, this will be displayed rather than the first frame of the video
   poster?: string
 
@@ -30,6 +27,7 @@ export default function VideoPlayer({
   url,
   poster,
   isCover,
+  ...props
 }: VideoPlayerProps) {
   return (
     <figure
@@ -42,6 +40,7 @@ export default function VideoPlayer({
         width="100%"
         height="100%"
         url={url}
+        {...props}
       />
     </figure>
   )
