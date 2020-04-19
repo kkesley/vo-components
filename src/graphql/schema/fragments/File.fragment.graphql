@@ -2,4 +2,5 @@ fragment File on File {
     public_url
     contentType
     is_ready
+    poster
 }
