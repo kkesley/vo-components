@@ -3,4 +3,7 @@ fragment File on File {
     contentType
     is_ready
     poster
+    customisation {
+        backgroundPosition
+    }
 }

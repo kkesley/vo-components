@@ -1,9 +1,9 @@
-#import "./FileCustom.fragment.graphql"
+#import "./File.fragment.graphql"
 fragment PortfolioSection on PortfolioSection {
     portfolio_section_key
     name
     banner {
-        ...FileCustom
+        ...File
     }
     sort_key
     slug
