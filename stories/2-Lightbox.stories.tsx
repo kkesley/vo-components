@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Lightbox, LightboxProvider } from '../src'
+import Lightbox, { LightboxProvider } from '../src/Lightbox'
 
 export default {
   title: 'Lightbox',
@@ -33,5 +33,31 @@ export const OpenIndex = () => (
   <Lightbox images={images}>
     <p>Lightbox will open the 4th item (index = 3)</p>
     <LightboxContent openIndex={3} />
+  </Lightbox>
+)
+
+const LightboxAction = () => (
+  <p className="buttons is-centered" style={{ marginTop: 20 }}>
+    <button className="button">
+      <span className="icon is-small">
+        <i className="fas fa-bold"></i>
+      </span>
+    </button>
+    <button className="button">
+      <span className="icon is-small">
+        <i className="fas fa-italic"></i>
+      </span>
+    </button>
+    <button className="button">
+      <span className="icon is-small">
+        <i className="fas fa-underline"></i>
+      </span>
+    </button>
+  </p>
+)
+
+export const WithActionComponent = () => (
+  <Lightbox actionComponent={<LightboxAction />} images={images}>
+    <LightboxContent />
   </Lightbox>
 )

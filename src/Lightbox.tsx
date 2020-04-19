@@ -43,9 +43,14 @@ export const LightboxProvider = React.createContext<ILightboxProvider>(
 export interface LightboxProps {
   images?: string[]
   children: React.ReactNode
+  actionComponent?: React.ReactNode
 }
 
-export default function Lightbox({ images, children }: LightboxProps) {
+export default function Lightbox({
+  images,
+  children,
+  actionComponent,
+}: LightboxProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [index, setIndex] = useState(0)
   const open = (index = 0) => {
@@ -95,6 +100,7 @@ export default function Lightbox({ images, children }: LightboxProps) {
               data-testid="active-image"
             />
           </figure>
+          <div test-id="action-component">{actionComponent}</div>
           <button
             onClick={() => previous()}
             data-testid="previous-button"

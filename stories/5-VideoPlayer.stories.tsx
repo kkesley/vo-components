@@ -1,5 +1,5 @@
 import React from 'react'
-import { VideoPlayer } from '../src'
+import VideoPlayer from '../src/VideoPlayer'
 
 export default {
   title: 'VideoPlayer',

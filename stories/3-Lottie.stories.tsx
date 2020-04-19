@@ -1,5 +1,5 @@
-import React  from 'react'
-import { Lottie } from '../src'
+import React from 'react'
+import Lottie from '../src/Lottie'
 import banana from './lottiefiles/banana.json'
 
 export default {
@@ -7,6 +7,4 @@ export default {
   component: Lottie,
 }
 
-export const Default = () => (
-  <Lottie animationData={banana} height={250} />
-)
+export const Default = () => <Lottie animationData={banana} height={250} />

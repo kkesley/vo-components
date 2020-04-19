@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Modal } from '../src'
+import Modal from '../src/Modal'
 
 export default {
   title: 'Modal',

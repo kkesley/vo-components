@@ -13,7 +13,7 @@
     "test:coverage": "tsdx test --coverage",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
-    "storybook": "start-storybook -s ./static -p 6006",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "graphql:codegen": "npx graphql-codegen -r dotenv/config"
   },

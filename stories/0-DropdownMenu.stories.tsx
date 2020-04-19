@@ -1,5 +1,6 @@
 import React from 'react'
-import { DropdownMenu, Theme } from '../src'
+import DropdownMenu from '../src/DropdownMenu'
+import colors from '../src/themes/colors'
 
 export default {
   title: 'DropdownMenu',
@@ -18,7 +19,7 @@ const BaseComponent = ({
       height: 300,
       width: 600,
       position: 'relative',
-      backgroundColor: Theme.colors.greyDark,
+      backgroundColor: colors.greyDark,
     }}
   >
     {text && <p className="has-text-white">{text}</p>}

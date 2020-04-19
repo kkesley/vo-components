@@ -1,5 +1,5 @@
 import React from 'react'
-import { DynamicImage } from '../src'
+import DynamicImage from '../src/DynamicImage'
 
 export default {
   title: 'DynamicImage',
