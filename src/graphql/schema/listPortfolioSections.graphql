@@ -1,0 +1,8 @@
+#import "./fragments/PortfolioSection.fragment.graphql"
+query listPortfolioSections($listing_status: ID!) {
+    listPortfolioSections(listing_status: $listing_status) {
+        items {
+            ...PortfolioSection
+        }
+    }
+}

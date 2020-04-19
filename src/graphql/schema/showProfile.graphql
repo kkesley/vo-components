@@ -1,0 +1,6 @@
+#import "./fragments/Profile.fragment.graphql"
+query showProfile($page_key: ID!) {
+    showProfile(page_key: $page_key) {
+        ...Profile
+    }
+}

@@ -1,0 +1,46 @@
+#import "./fragments/Slug.fragment.graphql"
+#import "./fragments/PortfolioSection.fragment.graphql"
+#import "./fragments/Collection.fragment.graphql"
+#import "./fragments/CollectionAsset.fragment.graphql"
+#import "./fragments/Customer.fragment.graphql"
+query showSlug($type: SlugType!, $slug: ID!, $types: [CollectionAssetType!]) {
+    showSlug(type: $type, slug: $slug) {
+        ...Slug
+        value {
+            ... on SlugPortfolioSection {
+                portfolio_section_key
+                portfolio_section {
+                    ...PortfolioSection
+                    collections {
+                        items {
+                            ...Collection
+                        }
+                        nextToken
+                    }
+                }
+            }
+
+            ... on SlugCollection {
+                collection_id
+                collection {
+                    ...Collection
+                    portfolio_section {
+                        ...PortfolioSection
+                    }
+                    customer {
+                        ...Customer
+                    }
+                    segments(types: $types) {
+                        type
+                        assets {
+                            items {
+                                ...CollectionAsset
+                            }
+                            nextToken
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

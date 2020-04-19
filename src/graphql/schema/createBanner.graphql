@@ -1,0 +1,6 @@
+#import "./fragments/Banner.fragment.graphql"
+mutation createBanner($input: BannerInput!) {
+    createBanner(input: $input) {
+        ...Banner
+    }
+}

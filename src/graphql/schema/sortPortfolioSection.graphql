@@ -1,0 +1,6 @@
+mutation sortPortfolioSection($portfolio_section_key: ID!, $sort_key: String!) {
+    sortPortfolioSection(portfolio_section_key: $portfolio_section_key, sort_key: $sort_key) {
+        portfolio_section_key
+        sort_key
+    }
+}

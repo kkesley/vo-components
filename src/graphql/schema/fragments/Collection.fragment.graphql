@@ -1,0 +1,16 @@
+#import "./File.fragment.graphql"
+fragment Collection on Collection {
+    collection_id
+    listing_status
+    sort_key
+    portfolio_section_key
+    title
+    description
+    banner {
+        ...File
+    }
+    tags
+    slug
+    duration_in_hour
+    hourly_price
+}

@@ -1,0 +1,5 @@
+mutation deleteCollectionAssets($asset_ids: [ID!]!) {
+    deleteCollectionAssets(asset_ids: $asset_ids) {
+        asset_id
+    }
+}

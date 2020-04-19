@@ -1,6 +1,10 @@
 import colors from './themes/colors'
 import screen from './themes/screen'
+import * as types from './graphql/types'
+import * as mutations from './graphql/schema/mutations'
+import * as queries from './graphql/schema/queries'
 
+export const graphql = { types, mutations, queries }
 export const Theme = { colors, screen }
 export { default as DropdownMenu, DropdownMenuProps } from './DropdownMenu'
 export {

@@ -1,0 +1,7 @@
+#import "./File.fragment.graphql"
+fragment FileCustom on File {
+    ...File
+    customisation {
+        backgroundPosition
+    }
+}

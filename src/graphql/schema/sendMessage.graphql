@@ -1,0 +1,6 @@
+mutation sendMessage($input: MessageInput!) {
+    createMessage(input: $input) {
+        message_id
+        created_at
+    }
+}

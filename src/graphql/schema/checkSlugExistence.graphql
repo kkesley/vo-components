@@ -1,0 +1,6 @@
+#import "./fragments/Slug.fragment.graphql"
+query checkSlugExistence($type: SlugType!, $slug: ID!) {
+    showSlug(type: $type, slug: $slug) {
+        ...Slug
+    }
+}

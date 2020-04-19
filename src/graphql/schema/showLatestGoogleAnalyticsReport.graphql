@@ -1,0 +1,29 @@
+query report($site: ID!) {
+    showLatestGoogleAnalyticsReport(site: $site) {
+        site
+        timestamp
+        reports {
+            id
+            columnHeader {
+                metricHeader {
+                    metricHeaderEntries {
+                        name
+                        type
+                    }
+                }
+                dimensions
+            }
+            data {
+                rows {
+                    dimensions
+                    metrics {
+                        values
+                    }
+                }
+                totals {
+                    values
+                }
+            }
+        }
+    }
+}

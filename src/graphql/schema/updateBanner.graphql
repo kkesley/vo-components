@@ -1,0 +1,6 @@
+#import "./fragments/Banner.fragment.graphql"
+mutation updateBanner($banner_id: ID!, $input: BannerInput!) {
+    updateBanner(banner_id: $banner_id, input: $input) {
+        ...Banner
+    }
+}

@@ -1,0 +1,5 @@
+mutation deletePortfolioSection($portfolio_section_key: ID!) {
+    deletePortfolioSection(portfolio_section_key: $portfolio_section_key) {
+        portfolio_section_key
+    }
+}

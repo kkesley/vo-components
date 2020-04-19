@@ -1,0 +1,17 @@
+#import "./fragments/CollectionAsset.fragment.graphql"
+query listCollectionAssets(
+    $collection_id: String!
+    $type: String
+    $next_token: String
+) {
+    listCollectionAssets(
+        collection_id: $collection_id
+        type: $type
+        next_token: $next_token
+    ) {
+        items {
+            ...CollectionAsset
+        }
+        nextToken
+    }
+}

@@ -1,0 +1,6 @@
+mutation sortCollectionAsset($asset_id: ID!, $sort_key: String!) {
+    sortCollectionAsset(asset_id: $asset_id, sort_key: $sort_key) {
+        asset_id
+        sort_key
+    }
+}

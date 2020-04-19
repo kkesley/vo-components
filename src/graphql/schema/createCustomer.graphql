@@ -1,0 +1,13 @@
+#import "./fragments/Customer.fragment.graphql"
+#import "./fragments/Collection.fragment.graphql"
+mutation createCustomer($input: CustomerInput!) {
+    createCustomer(input: $input) {
+        ...Customer
+        sessions {
+            items {
+                ...Collection
+            }
+            nextToken
+        }
+    }
+}

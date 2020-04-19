@@ -1,0 +1,6 @@
+#import "./fragments/CollectionAsset.fragment.graphql"
+mutation createCollectionAsset($input: CollectionAssetInput!) {
+    createCollectionAsset(input: $input) {
+        ...CollectionAsset
+    }
+}

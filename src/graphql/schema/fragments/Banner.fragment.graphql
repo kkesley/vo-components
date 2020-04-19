@@ -1,0 +1,10 @@
+#import "./File.fragment.graphql"
+fragment Banner on Banner {
+    banner_id
+    listing_status
+    sort_key
+    link
+    file {
+        ...File
+    }
+}

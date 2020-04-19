@@ -1,0 +1,13 @@
+#import "./fragments/Customer.fragment.graphql"
+#import "./fragments/Collection.fragment.graphql"
+query showCustomerSelf {
+    showCustomerSelf {
+        ...Customer
+        sessions {
+            items {
+                ...Collection
+            }
+            nextToken
+        }
+    }
+}

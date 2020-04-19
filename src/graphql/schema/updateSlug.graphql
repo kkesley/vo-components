@@ -1,0 +1,6 @@
+#import "./fragments/Slug.fragment.graphql"
+mutation updateSlug($input: SlugInput!) {
+    updateSlug(input: $input) {
+        ...Slug
+    }
+}

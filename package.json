@@ -14,11 +14,13 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "storybook": "start-storybook -s ./static -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "graphql:codegen": "npx graphql-codegen -r dotenv/config"
   },
   "dependencies": {
     "@types/react-modal": "^3.10.5",
     "csx": "^10.0.1",
+    "graphql.macro": "^1.4.2",
     "lottie-web": "^5.6.5",
     "react-modal": "^3.11.1",
     "react-player": "^1.15.3",
@@ -55,6 +57,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@graphql-codegen/cli": "^1.13.2",
+    "@graphql-codegen/typescript": "^1.13.2",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-docs": "^5.3.18",
     "@storybook/addon-info": "^5.3.18",
@@ -69,6 +73,7 @@
     "@types/react-dom": "^16.9.5",
     "@types/react-test-renderer": "^16.9.2",
     "babel-loader": "^8.1.0",
+    "graphql": "^15.0.0",
     "husky": "^4.2.3",
     "jest-canvas-mock": "^2.2.0",
     "prettier": "^2.0.4",

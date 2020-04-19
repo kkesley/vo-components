@@ -1,0 +1,6 @@
+#import "./fragments/Collection.fragment.graphql"
+mutation updateCollection($collection_id: ID!, $input: CollectionInput!) {
+    updateCollection(collection_id: $collection_id, input: $input) {
+        ...Collection
+    }
+}

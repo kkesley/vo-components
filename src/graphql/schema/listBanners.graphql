@@ -1,0 +1,8 @@
+#import "./fragments/Banner.fragment.graphql"
+query listBanners($listing_status: ID!) {
+    listBanners(listing_status: $listing_status) {
+        items {
+            ...Banner
+        }
+    }
+}

@@ -1,0 +1,10 @@
+#import "./File.fragment.graphql"
+fragment CollectionAsset on CollectionAsset {
+    asset_id
+    collection_id
+    sort_key
+    file {
+        ...File
+    }
+    type
+}

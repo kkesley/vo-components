@@ -1,0 +1,5 @@
+fragment Slug on Slug {
+    slug_key
+    slug
+    type
+}

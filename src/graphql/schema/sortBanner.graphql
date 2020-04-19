@@ -1,0 +1,6 @@
+mutation sortBanner($banner_id: ID!, $sort_key: String!) {
+    sortBanner(banner_id: $banner_id, sort_key: $sort_key) {
+        banner_id
+        sort_key
+    }
+}

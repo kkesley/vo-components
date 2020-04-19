@@ -1,0 +1,6 @@
+#import "./fragments/PortfolioSection.fragment.graphql"
+mutation createPortfolioSection($input: PortfolioSectionInput!) {
+    createPortfolioSection(input: $input) {
+        ...PortfolioSection
+    }
+}

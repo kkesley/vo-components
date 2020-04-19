@@ -1,0 +1,11 @@
+fragment Customer on Customer {
+    customer_id
+    listing_status
+    sort_key
+    name
+    email
+    instagram_username
+    access_key
+    description
+    created_at
+}

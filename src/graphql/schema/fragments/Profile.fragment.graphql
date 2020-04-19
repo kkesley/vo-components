@@ -1,0 +1,30 @@
+#import "./File.fragment.graphql"
+#import "./Collection.fragment.graphql"
+#import "./PortfolioSection.fragment.graphql"
+fragment Profile on Profile {
+    page_key
+    type
+    file {
+        ...File
+    }
+    value {
+        ... on ProfileAboutMe {
+            about_me_blurb
+            about_me_title
+            about_me_content
+        }
+
+        ... on ProfileLatestWorks {
+            items {
+                collection_id
+                sort_key
+                collection {
+                    ...Collection
+                    portfolio_section {
+                        ...PortfolioSection
+                    }
+                }
+            }
+        }
+    }
+}

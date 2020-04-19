@@ -1,0 +1,16 @@
+#import "./fragments/Customer.fragment.graphql"
+#import "./fragments/Collection.fragment.graphql"
+query listCustomers($listing_status: ID!) {
+    listCustomers(listing_status: $listing_status) {
+        items {
+            ...Customer
+            sessions {
+                items {
+                    ...Collection
+                }
+                nextToken
+            }
+        }
+        nextToken
+    }
+}

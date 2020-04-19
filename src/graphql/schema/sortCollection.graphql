@@ -1,0 +1,6 @@
+mutation sortCollection($collection_id: ID!, $sort_key: String!) {
+    sortCollection(collection_id: $collection_id, sort_key: $sort_key) {
+        collection_id
+        sort_key
+    }
+}

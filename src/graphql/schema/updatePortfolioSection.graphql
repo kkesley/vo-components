@@ -1,0 +1,6 @@
+#import "./fragments/PortfolioSection.fragment.graphql"
+mutation updatePortfolioSection($portfolio_section_key: ID!, $input: PortfolioSectionInput!) {
+    updatePortfolioSection(portfolio_section_key: $portfolio_section_key, input: $input) {
+        ...PortfolioSection
+    }
+}

@@ -1,0 +1,13 @@
+#import "./fragments/Customer.fragment.graphql"
+#import "./fragments/Collection.fragment.graphql"
+query showCustomer($customer_id: ID!) {
+    showCustomer(customer_id: $customer_id) {
+        ...Customer
+        sessions {
+            items {
+                ...Collection
+            }
+            nextToken
+        }
+    }
+}

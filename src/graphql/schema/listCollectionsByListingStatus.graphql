@@ -1,0 +1,9 @@
+#import "./fragments/Collection.fragment.graphql"
+query listCollectionsByListingStatus($listing_status: String!) {
+    listCollectionsByListingStatus(listing_status: $listing_status) {
+        items {
+            ...Collection
+        }
+        nextToken
+    }
+}

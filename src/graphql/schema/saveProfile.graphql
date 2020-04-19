@@ -1,0 +1,6 @@
+#import "./fragments/Profile.fragment.graphql"
+mutation createProfile($page_key: ID!, $input: ProfileInput!) {
+    saveProfile(page_key: $page_key, input: $input) {
+        ...Profile
+    }
+}
