@@ -56,8 +56,27 @@ const LightboxAction = () => (
   </p>
 )
 
-export const WithActionComponent = () => (
+export const ActionComponent = () => (
   <Lightbox actionComponent={<LightboxAction />} images={images}>
+    <LightboxContent />
+  </Lightbox>
+)
+
+export const TopLabel = () => (
+  <Lightbox
+    topLabel="Click the love icon below if you'd like to select your favorite image"
+    images={images}
+  >
+    <LightboxContent />
+  </Lightbox>
+)
+
+export const ActionComponentAndTopLabel = () => (
+  <Lightbox
+    actionComponent={<LightboxAction />}
+    topLabel="Click the love icon below if you'd like to select your favorite image"
+    images={images}
+  >
     <LightboxContent />
   </Lightbox>
 )

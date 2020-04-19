@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Modal from './Modal'
 import { style, classes } from 'typestyle'
-import { viewWidth, viewHeight } from 'csx'
+import { viewWidth, viewHeight, em } from 'csx'
 import colors from './themes/colors'
 import { useState } from 'react'
 import { useKey } from 'react-use'
@@ -30,6 +30,9 @@ const styles = {
     maxHeight: viewHeight(80),
     objectFit: 'contain',
   }),
+  topLabel: style({
+    marginBottom: em(1),
+  }),
 }
 
 interface ILightboxProvider {
@@ -41,6 +44,7 @@ export const LightboxProvider = React.createContext<ILightboxProvider>(
 )
 
 export interface LightboxProps {
+  topLabel?: string
   images?: string[]
   children: React.ReactNode
   actionComponent?: React.ReactNode
@@ -50,6 +54,7 @@ export default function Lightbox({
   images,
   children,
   actionComponent,
+  topLabel,
 }: LightboxProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [index, setIndex] = useState(0)
@@ -92,6 +97,16 @@ export default function Lightbox({
           onClose={() => setIsOpen(false)}
           className={styles.modal}
         >
+          {topLabel && (
+            <p
+              className={classes(
+                'is-size-6 has-text-white has-text-centered',
+                styles.topLabel
+              )}
+            >
+              {topLabel}
+            </p>
+          )}
           <figure className="image">
             <img
               alt={`Lightbox number ${index + 1}`}
