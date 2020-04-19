@@ -1,7 +1,7 @@
 schema: ./src/graphql/schema/schema.json
 hooks:
     afterStart:
-        - aws appsync get-introspection-schema ./src/graphql/schema/schema.json --api-id ${APPSYNC_API_ID} --format JSON --profile personal
+        - aws appsync get-introspection-schema ./src/graphql/schema/schema.json --api-id ${APPSYNC_API_ID} --format JSON
 generates:
     ./src/graphql/types.ts:
         hooks:
