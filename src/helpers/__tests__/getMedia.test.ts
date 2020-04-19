@@ -31,7 +31,7 @@ describe('getMedia', () => {
       expectedMedia: MediaType.UNKNOWN,
     },
   ]
-  testCases.forEach(testCase => {
+  testCases.forEach((testCase) => {
     it(`correctly returns media type for ${testCase.contentType}`, () => {
       expect(getMedia(testCase.contentType)).toEqual(testCase.expectedMedia)
     })
@@ -49,7 +49,7 @@ describe('isLocalUrl', () => {
       expectedResult: false,
     },
   ]
-  testCases.forEach(testCase => {
+  testCases.forEach((testCase) => {
     it(`returns the correct result for ${testCase.url}`, () => {
       expect(isLocalUrl(testCase.url)).toEqual(testCase.expectedResult)
     })

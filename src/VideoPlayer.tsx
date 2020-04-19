@@ -13,7 +13,7 @@ const styles = {
   }),
 }
 
-interface VideoPlayerProps extends ReactPlayerProps {
+export interface VideoPlayerProps extends ReactPlayerProps {
   // if set, this will be displayed rather than the first frame of the video
   poster?: string
 

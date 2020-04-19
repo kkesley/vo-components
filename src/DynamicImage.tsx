@@ -9,12 +9,12 @@ const styles = {
 
 export type ImageSize = 1920 | 1280 | 1080 | 720 | 480 | 320 | 120 | 50
 
-interface ResponsiveConfig {
+export interface ResponsiveConfig {
   maxScreenWidth: number
   imageWidth: ImageSize
 }
 
-interface DynamicImageURLArgs {
+export interface DynamicImageURLArgs {
   src: string
   width: ImageSize
 }
@@ -24,7 +24,7 @@ export const getDynamicImageURL = (props: DynamicImageURLArgs) => {
   return src.replace('{dimension}', width.toString())
 }
 
-interface DynamicImageProps extends DynamicImageURLArgs {
+export interface DynamicImageProps extends DynamicImageURLArgs {
   alt?: string
   srcSet?: ResponsiveConfig[]
 }

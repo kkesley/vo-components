@@ -40,7 +40,7 @@ export const LightboxProvider = React.createContext<ILightboxProvider>(
   {} as ILightboxProvider
 )
 
-interface LightboxProps {
+export interface LightboxProps {
   images?: string[]
   children: React.ReactNode
 }
@@ -54,7 +54,7 @@ export default function Lightbox({ images, children }: LightboxProps) {
   }
   const previous = () => {
     if (!isOpen) return
-    setIndex(index => {
+    setIndex((index) => {
       if (images && index === 0) {
         return images.length - 1
       }
@@ -63,7 +63,7 @@ export default function Lightbox({ images, children }: LightboxProps) {
   }
   const next = () => {
     if (!isOpen) return
-    setIndex(index => {
+    setIndex((index) => {
       if (images && index === images.length - 1) {
         return 0
       }

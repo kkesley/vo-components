@@ -1,7 +1,7 @@
 import * as React from 'react'
 import lottie from 'lottie-web'
 
-interface LottieProps {
+export interface LottieProps {
   animationData: any
   loop?: boolean
   autoplay?: boolean
@@ -15,7 +15,7 @@ export default function Lottie({
   height = '100%',
 }: LottieProps) {
   const containerRef = React.useCallback(
-    node => {
+    (node) => {
       if (node === null) {
         return
       }

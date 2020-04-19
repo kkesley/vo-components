@@ -46,7 +46,7 @@ describe('useColumns', () => {
         ],
       },
     ]
-    testCases.forEach(testCase => {
+    testCases.forEach((testCase) => {
       it(`returns ${testCase.expectedColumn} column for ${testCase.label}`, () => {
         act(() => {
           changeInnerWidth(testCase.width)
@@ -100,7 +100,7 @@ describe('useColumns', () => {
         expectedResults: [[1, 10], [2], [3], [4], [5], [6], [7], [8], [9]],
       },
     ]
-    testCases.forEach(testCase => {
+    testCases.forEach((testCase) => {
       it(`returns ${testCase.expectedColumn} column for ${testCase.label}`, () => {
         act(() => {
           changeInnerWidth(testCase.width)
@@ -176,7 +176,7 @@ describe('calculateColumnOriginalIndex', () => {
       expectedResult: 8,
     },
   ]
-  testCases.forEach(testCase => {
+  testCases.forEach((testCase) => {
     it(`returns the correct index for [columnIndex: ${testCase.columnIndex} | itemIndex: ${testCase.itemIndex} | columnCount: ${testCase.columnCount}]`, () => {
       expect(
         calculateColumnOriginalIndex(

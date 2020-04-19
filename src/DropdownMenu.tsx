@@ -14,7 +14,7 @@ const styles = {
   }),
 }
 
-interface DropdownMenuProps {
+export interface DropdownMenuProps {
   className?: string
   align?: 'left' | 'right'
   children: React.ReactNode

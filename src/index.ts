@@ -2,16 +2,23 @@ import colors from './themes/colors'
 import screen from './themes/screen'
 
 export const Theme = { colors, screen }
-export { default as DropdownMenu } from './DropdownMenu'
+export { default as DropdownMenu, DropdownMenuProps } from './DropdownMenu'
 export {
   default as DynamicImage,
   getDynamicImageURL,
   ImageSize,
+  DynamicImageProps,
+  DynamicImageURLArgs,
+  ResponsiveConfig,
 } from './DynamicImage'
-export { default as Lightbox, LightboxProvider } from './Lightbox'
-export { default as Lottie } from './Lottie'
+export {
+  default as Lightbox,
+  LightboxProvider,
+  LightboxProps,
+} from './Lightbox'
+export { default as Lottie, LottieProps } from './Lottie'
 export { default as Modal } from './Modal'
-export { default as VideoPlayer } from './VideoPlayer'
+export { default as VideoPlayer, VideoPlayerProps } from './VideoPlayer'
 export {
   default as useColumns,
   calculateColumnOriginalIndex,

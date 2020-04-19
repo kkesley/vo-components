@@ -4,7 +4,7 @@ import Modal from '../Modal'
 import ReactModal from 'react-modal'
 
 jest.mock('react-dom', () => ({
-  createPortal: jest.fn(children => children),
+  createPortal: jest.fn((children) => children),
 }))
 
 Modal.setAppElement(document.createElement('div'))

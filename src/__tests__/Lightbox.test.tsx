@@ -4,7 +4,7 @@ import Lightbox, { LightboxProvider } from '../Lightbox'
 import Modal from '../Modal'
 
 jest.mock('react-dom', () => ({
-  createPortal: jest.fn(children => children),
+  createPortal: jest.fn((children) => children),
 }))
 
 Modal.setAppElement(document.createElement('div'))
@@ -14,7 +14,9 @@ const getComponent = (images?: string[]) =>
   renderer.create(
     <Lightbox images={images || defaultImages}>
       <LightboxProvider.Consumer>
-        {context => <div onClick={() => context.open()} data-testid="child" />}
+        {(context) => (
+          <div onClick={() => context.open()} data-testid="child" />
+        )}
       </LightboxProvider.Consumer>
     </Lightbox>
   ).root
