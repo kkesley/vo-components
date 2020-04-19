@@ -1,10 +1,6 @@
 import colors from './themes/colors'
 import screen from './themes/screen'
-import * as graphqlTypes from './graphql/types'
-import * as mutations from './graphql/schema/mutations'
-import * as queries from './graphql/schema/queries'
 
-export { graphqlTypes, mutations, queries }
 export const Theme = { colors, screen }
 export { default as DropdownMenu, DropdownMenuProps } from './DropdownMenu'
 export {
@@ -28,3 +24,6 @@ export {
   calculateColumnOriginalIndex,
 } from './hooks/useColumns'
 export { default as getMedia, isLocalUrl, MediaType } from './helpers/getMedia'
+export * from './graphql/types'
+export * from './graphql/schema/mutations'
+export * from './graphql/schema/queries'
