@@ -16,7 +16,7 @@ export {
   LightboxProvider,
   LightboxProps,
 } from './Lightbox'
-export { default as Lottie, LottieProps } from './Lottie'
+export { Lottie, LottieProps, LottieToggle, LottieToggleProps } from './Lottie'
 export { default as Modal } from './Modal'
 export { default as VideoPlayer, VideoPlayerProps } from './VideoPlayer'
 export {
