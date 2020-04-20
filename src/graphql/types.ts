@@ -145,6 +145,7 @@ export type Collection = {
   segments?: Maybe<Array<CollectionSegment>>
   photoCount?: Maybe<Scalars['Int']>
   videoCount?: Maybe<Scalars['Int']>
+  active_customer_phase?: Maybe<CollectionCustomerPhase>
 }
 
 export type CollectionSegmentsArgs = {
@@ -173,6 +174,7 @@ export type Customer = {
   description?: Maybe<Scalars['String']>
   created_at?: Maybe<Scalars['String']>
   access_key?: Maybe<Scalars['String']>
+  latestSession?: Maybe<Collection>
   sessions?: Maybe<CollectionConnection>
 }
 
@@ -205,6 +207,12 @@ export type CollectionAsset = {
   sort_key?: Maybe<Scalars['String']>
   file?: Maybe<File>
   type?: Maybe<CollectionAssetType>
+}
+
+export enum CollectionCustomerPhase {
+  PickRawAssets = 'PICK_RAW_ASSETS',
+  EditingInProgress = 'EDITING_IN_PROGRESS',
+  EditedAssetsReady = 'EDITED_ASSETS_READY',
 }
 
 export type PortfolioSectionConnection = {
@@ -353,6 +361,7 @@ export type Mutation = {
   deleteBanner?: Maybe<Banner>
   createCollection: Collection
   updateCollection?: Maybe<Collection>
+  updateCollectionActiveCustomerPhase?: Maybe<Collection>
   sortCollection?: Maybe<Collection>
   deleteCollection?: Maybe<Collection>
   createCollectionAsset: CollectionAsset
@@ -398,6 +407,11 @@ export type MutationCreateCollectionArgs = {
 export type MutationUpdateCollectionArgs = {
   collection_id: Scalars['ID']
   input: CollectionInput
+}
+
+export type MutationUpdateCollectionActiveCustomerPhaseArgs = {
+  collection_id: Scalars['ID']
+  input: CollectionActiveCustomerPhaseInput
 }
 
 export type MutationSortCollectionArgs = {
@@ -495,6 +509,10 @@ export type CollectionInput = {
   sort_key?: Maybe<Scalars['String']>
   hourly_price?: Maybe<Scalars['String']>
   duration_in_hour?: Maybe<Scalars['String']>
+}
+
+export type CollectionActiveCustomerPhaseInput = {
+  active_customer_phase?: Maybe<CollectionCustomerPhase>
 }
 
 export type CollectionAssetInput = {
@@ -603,13 +621,13 @@ export type CustomerFileInputOptionInput = {
   original_paths: Array<Scalars['String']>
 }
 
+export enum BannerType {
+  Video = 'video',
+  Photo = 'photo',
+}
+
 export type CustomerFileConnection = {
   __typename?: 'CustomerFileConnection'
   items: Array<CustomerFile>
   nextToken?: Maybe<Scalars['String']>
-}
-
-export enum BannerType {
-  Video = 'video',
-  Photo = 'photo',
 }

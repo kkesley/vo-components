@@ -3,11 +3,8 @@
 query showCustomerSelf {
     showCustomerSelf {
         ...Customer
-        sessions {
-            items {
-                ...Collection
-            }
-            nextToken
+        latestSession {
+            ...Collection
         }
     }
 }

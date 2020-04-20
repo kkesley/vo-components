@@ -13,4 +13,5 @@ fragment Collection on Collection {
     slug
     duration_in_hour
     hourly_price
+    active_customer_phase
 }
