@@ -9,6 +9,7 @@ import { useKey } from 'react-use'
 const styles = {
   modal: style({
     backgroundColor: colors.transparent,
+    overflow: 'hidden',
   }),
   arrow: style({
     position: 'absolute',
