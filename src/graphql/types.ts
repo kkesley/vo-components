@@ -135,6 +135,7 @@ export type Collection = {
   portfolio_section_key?: Maybe<Scalars['String']>
   portfolio_section?: Maybe<PortfolioSection>
   customer?: Maybe<Customer>
+  customer_id?: Maybe<Scalars['String']>
   title?: Maybe<Scalars['String']>
   description?: Maybe<Scalars['String']>
   banner?: Maybe<File>

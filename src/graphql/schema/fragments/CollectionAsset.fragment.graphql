@@ -7,4 +7,5 @@ fragment CollectionAsset on CollectionAsset {
         ...File
     }
     type
+    customer_id
 }
