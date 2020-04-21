@@ -92,7 +92,7 @@ export default function Lightbox({
     return undefined
   }, [images, index])
   return (
-    <>
+    <LightboxProvider.Provider value={{ open, activeIndex: index }}>
       {currentImage && (
         <Modal
           isOpen={isOpen}
@@ -146,9 +146,8 @@ export default function Lightbox({
           </button>
         </Modal>
       )}
-      <LightboxProvider.Provider value={{ open, activeIndex: index }}>
-        {children}
-      </LightboxProvider.Provider>
-    </>
+
+      {children}
+    </LightboxProvider.Provider>
   )
 }

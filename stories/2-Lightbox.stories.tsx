@@ -39,25 +39,28 @@ export const OpenIndex = () => (
   </Lightbox>
 )
 
-const LightboxAction = () => (
-  <p className="buttons is-centered" style={{ marginTop: 20 }}>
-    <button className="button">
-      <span className="icon is-small">
-        <i className="fas fa-bold"></i>
-      </span>
-    </button>
-    <button className="button">
-      <span className="icon is-small">
-        <i className="fas fa-italic"></i>
-      </span>
-    </button>
-    <button className="button">
-      <span className="icon is-small">
-        <i className="fas fa-underline"></i>
-      </span>
-    </button>
-  </p>
-)
+const LightboxAction = () => {
+  const { activeIndex } = useContext(LightboxProvider)
+  return (
+    <p className="buttons is-centered" style={{ marginTop: 20 }}>
+      <button onClick={() => alert(`active index is: ${activeIndex}`)} className="button">
+        <span className="icon is-small">
+          <i className="fas fa-bold"></i>
+        </span>
+      </button>
+      <button onClick={() => alert(`dont be shy activeIndex of ${activeIndex}`)} className="button">
+        <span className="icon is-small">
+          <i className="fas fa-italic"></i>
+        </span>
+      </button>
+      <button onClick={() => alert(`oh noes activeIndex of ${activeIndex} is really mean`)} className="button">
+        <span className="icon is-small">
+          <i className="fas fa-underline"></i>
+        </span>
+      </button>
+    </p>
+  )
+}
 
 export const ActionComponent = () => (
   <Lightbox actionComponent={<LightboxAction />} images={images}>
