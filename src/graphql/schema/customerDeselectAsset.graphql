@@ -1,0 +1,5 @@
+mutation customerDeselectAsset($asset_id: ID!) {
+    customerDeselectAsset(asset_id: $asset_id) {
+        asset_id
+    }
+}

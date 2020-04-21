@@ -383,6 +383,7 @@ export type Mutation = {
   deleteCustomer?: Maybe<Customer>
   requestCustomerFile: CustomerFile
   customerSelectAsset: CollectionAsset
+  customerDeselectAsset?: Maybe<CollectionAsset>
 }
 
 export type MutationCreateBannerArgs = {
@@ -498,6 +499,10 @@ export type MutationRequestCustomerFileArgs = {
 
 export type MutationCustomerSelectAssetArgs = {
   input: CustomerSelectAssetInput
+}
+
+export type MutationCustomerDeselectAssetArgs = {
+  asset_id: Scalars['ID']
 }
 
 export type BannerInput = {
