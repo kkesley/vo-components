@@ -209,6 +209,7 @@ export type CollectionAsset = {
   file?: Maybe<File>
   type?: Maybe<CollectionAssetType>
   customer_id?: Maybe<Scalars['String']>
+  source_asset_id?: Maybe<Scalars['String']>
 }
 
 export enum CollectionCustomerPhase {

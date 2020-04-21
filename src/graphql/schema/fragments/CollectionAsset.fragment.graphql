@@ -8,4 +8,5 @@ fragment CollectionAsset on CollectionAsset {
     }
     type
     customer_id
+    source_asset_id
 }
