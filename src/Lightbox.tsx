@@ -38,6 +38,7 @@ const styles = {
 
 interface ILightboxProvider {
   open: (index?: number) => any
+  activeIndex: number
 }
 
 export const LightboxProvider = React.createContext<ILightboxProvider>(
@@ -145,7 +146,7 @@ export default function Lightbox({
           </button>
         </Modal>
       )}
-      <LightboxProvider.Provider value={{ open }}>
+      <LightboxProvider.Provider value={{ open, activeIndex: index }}>
         {children}
       </LightboxProvider.Provider>
     </>
