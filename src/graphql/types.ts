@@ -207,6 +207,7 @@ export type CollectionAsset = {
   sort_key?: Maybe<Scalars['String']>
   file?: Maybe<File>
   type?: Maybe<CollectionAssetType>
+  customer_id?: Maybe<Scalars['String']>
 }
 
 export enum CollectionCustomerPhase {
@@ -380,6 +381,7 @@ export type Mutation = {
   updateCustomer?: Maybe<Customer>
   deleteCustomer?: Maybe<Customer>
   requestCustomerFile: CustomerFile
+  customerSelectAsset: CollectionAsset
 }
 
 export type MutationCreateBannerArgs = {
@@ -493,6 +495,10 @@ export type MutationRequestCustomerFileArgs = {
   input: CustomerFileInput
 }
 
+export type MutationCustomerSelectAssetArgs = {
+  input: CustomerSelectAssetInput
+}
+
 export type BannerInput = {
   listing_status?: Maybe<Scalars['String']>
   sort_key?: Maybe<Scalars['String']>
@@ -519,6 +525,7 @@ export type CollectionAssetInput = {
   collection_id: Scalars['String']
   sort_key?: Maybe<Scalars['String']>
   type?: Maybe<CollectionAssetType>
+  customer_id?: Maybe<Scalars['String']>
 }
 
 export type PortfolioSectionInput = {
@@ -619,6 +626,12 @@ export type CustomerFileOutputOptionInput = {
 
 export type CustomerFileInputOptionInput = {
   original_paths: Array<Scalars['String']>
+}
+
+export type CustomerSelectAssetInput = {
+  asset_id: Scalars['String']
+  sort_key: Scalars['String']
+  type: CollectionAssetType
 }
 
 export enum BannerType {

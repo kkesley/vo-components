@@ -1,0 +1,6 @@
+#import "./fragments/CollectionAsset.fragment.graphql"
+mutation customerSelectAsset($input: CustomerSelectAssetInput!) {
+    customerSelectAsset(input: $input) {
+        ...CollectionAsset
+    }
+}
