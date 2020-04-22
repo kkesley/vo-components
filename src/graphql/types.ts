@@ -147,6 +147,7 @@ export type Collection = {
   photoCount?: Maybe<Scalars['Int']>
   videoCount?: Maybe<Scalars['Int']>
   active_customer_phase?: Maybe<CollectionCustomerPhase>
+  customer_is_done?: Maybe<Scalars['Boolean']>
 }
 
 export type CollectionSegmentsArgs = {
@@ -383,6 +384,7 @@ export type Mutation = {
   updateCustomer?: Maybe<Customer>
   deleteCustomer?: Maybe<Customer>
   requestCustomerFile: CustomerFile
+  customerUpdateCollectionProgressStatus?: Maybe<Collection>
   customerSelectAsset: CollectionAsset
   customerDeselectAsset?: Maybe<CollectionAsset>
 }
@@ -496,6 +498,11 @@ export type MutationDeleteCustomerArgs = {
 export type MutationRequestCustomerFileArgs = {
   customer_id: Scalars['ID']
   input: CustomerFileInput
+}
+
+export type MutationCustomerUpdateCollectionProgressStatusArgs = {
+  collection_id: Scalars['ID']
+  input: CustomerCollectionProgressStatusInput
 }
 
 export type MutationCustomerSelectAssetArgs = {
@@ -635,19 +642,23 @@ export type CustomerFileInputOptionInput = {
   original_paths: Array<Scalars['String']>
 }
 
+export type CustomerCollectionProgressStatusInput = {
+  customer_is_done: Scalars['Boolean']
+}
+
 export type CustomerSelectAssetInput = {
   asset_id: Scalars['String']
   sort_key: Scalars['String']
   type: CollectionAssetType
 }
 
-export enum BannerType {
-  Video = 'video',
-  Photo = 'photo',
-}
-
 export type CustomerFileConnection = {
   __typename?: 'CustomerFileConnection'
   items: Array<CustomerFile>
   nextToken?: Maybe<Scalars['String']>
+}
+
+export enum BannerType {
+  Video = 'video',
+  Photo = 'photo',
 }

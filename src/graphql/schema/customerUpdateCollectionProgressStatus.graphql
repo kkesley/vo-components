@@ -1,0 +1,6 @@
+#import "./fragments/Collection.fragment.graphql"
+mutation customerUpdateCollectionProgressStatus($collection_id: ID!, $input: CustomerCollectionProgressStatusInput!) {
+    customerUpdateCollectionProgressStatus(collection_id: $collection_id, input: $input) {
+        ...Collection
+    }
+}
