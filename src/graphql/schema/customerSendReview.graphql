@@ -1,0 +1,6 @@
+#import "./fragments/Collection.fragment.graphql"
+mutation customerSendReview($collection_id: ID!, $input: CustomerCollectionReviewInput!) {
+    customerSendReview(collection_id: $collection_id, input: $input) {
+        ...Collection
+    }
+}

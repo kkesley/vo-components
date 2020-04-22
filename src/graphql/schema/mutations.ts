@@ -32,5 +32,7 @@ export const SEND_MESSAGE = loader('./sendMessage.graphql')
 export const CUSTOMER_UPDATE_COLLECTION_PROGRESS_STATUS = loader(
   './customerUpdateCollectionProgressStatus.graphql'
 )
+export const CUSTOMER_SEND_MESSAGE = loader('./customerSendMessage.graphql')
+export const CUSTOMER_SEND_REVIEW = loader('./customerSendReview.graphql')
 export const CUSTOMER_SELECT_ASSET = loader('./customerSelectAsset.graphql')
 export const CUSTOMER_DESELECT_ASSET = loader('./customerDeselectAsset.graphql')

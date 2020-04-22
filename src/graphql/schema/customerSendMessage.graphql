@@ -1,0 +1,6 @@
+#import "./fragments/Collection.fragment.graphql"
+mutation customerSendMessage($collection_id: ID!, $input: CustomerCollectionMessageInput!) {
+    customerSendMessage(collection_id: $collection_id, input: $input) {
+        ...Collection
+    }
+}
