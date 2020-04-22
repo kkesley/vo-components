@@ -60,14 +60,14 @@ export default function Lightbox({
 }: LightboxProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [index, setIndex] = useState(0)
-  const open = (index = 0) => {
+  const open = React.useCallback((index = 0) => {
     setIndex(index)
     setIsOpen(true)
-  }
+  }, [])
   const previous = () => {
     if (!isOpen) return
     setIndex((index) => {
-      if (images && index === 0) {
+      if (images && index <= 0) {
         return images.length - 1
       }
       return index - 1
@@ -76,23 +76,31 @@ export default function Lightbox({
   const next = () => {
     if (!isOpen) return
     setIndex((index) => {
-      if (images && index === images.length - 1) {
+      if (images && index >= images.length - 1) {
         return 0
       }
       return index + 1
     })
   }
-  useKey('ArrowLeft', previous, undefined, [isOpen])
-  useKey('ArrowRight', next, undefined, [isOpen])
+  useKey('ArrowLeft', previous, undefined, [isOpen, images])
+  useKey('ArrowRight', next, undefined, [isOpen, images])
   useKey('Escape', () => setIsOpen(false))
+  const currentIndex = React.useMemo(
+    () => (images ? Math.min(images.length - 1, index) : 0),
+    [images, index]
+  )
   const currentImage = React.useMemo(() => {
     if (images) {
-      return images[index % images.length]
+      return images[currentIndex]
     }
     return undefined
-  }, [images, index])
+  }, [images, currentIndex])
+  const contextValue = React.useMemo(
+    () => ({ open, activeIndex: currentIndex }),
+    [open, currentIndex]
+  )
   return (
-    <LightboxProvider.Provider value={{ open, activeIndex: index }}>
+    <LightboxProvider.Provider value={contextValue}>
       {currentImage && (
         <Modal
           isOpen={isOpen}

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Lightbox, { LightboxProvider } from '../src/Lightbox'
 
 export default {
@@ -43,17 +43,28 @@ const LightboxAction = () => {
   const { activeIndex } = useContext(LightboxProvider)
   return (
     <p className="buttons is-centered" style={{ marginTop: 20 }}>
-      <button onClick={() => alert(`active index is: ${activeIndex}`)} className="button">
+      <button
+        onClick={() => alert(`active index is: ${activeIndex}`)}
+        className="button"
+      >
         <span className="icon is-small">
           <i className="fas fa-bold"></i>
         </span>
       </button>
-      <button onClick={() => alert(`dont be shy activeIndex of ${activeIndex}`)} className="button">
+      <button
+        onClick={() => alert(`dont be shy activeIndex of ${activeIndex}`)}
+        className="button"
+      >
         <span className="icon is-small">
           <i className="fas fa-italic"></i>
         </span>
       </button>
-      <button onClick={() => alert(`oh noes activeIndex of ${activeIndex} is really mean`)} className="button">
+      <button
+        onClick={() =>
+          alert(`oh noes activeIndex of ${activeIndex} is really mean`)
+        }
+        className="button"
+      >
         <span className="icon is-small">
           <i className="fas fa-underline"></i>
         </span>
@@ -86,3 +97,37 @@ export const ActionComponentAndTopLabel = () => (
     <LightboxContent />
   </Lightbox>
 )
+
+const DeleteAction = ({ setImages }: { setImages: React.Dispatch<any> }) => {
+  const { activeIndex } = useContext(LightboxProvider)
+  return (
+    <p className="buttons">
+      <button
+        onClick={() =>
+          setImages((images) =>
+            images.filter((_, index) => index !== activeIndex)
+          )
+        }
+        className="button"
+      >
+        delete
+      </button>
+    </p>
+  )
+}
+
+export const DeleteItem = () => {
+  const [newImages, setImages] = useState(images)
+  return (
+    <Lightbox
+      actionComponent={<DeleteAction setImages={setImages} />}
+      topLabel="Click action to delete item"
+      images={newImages}
+    >
+      <button className="button is-success" onClick={() => {
+        setImages(images => [...images, 'https://via.placeholder.com/150'])
+      }}>Generate item</button>
+      <LightboxContent />
+    </Lightbox>
+  )
+}
