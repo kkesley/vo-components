@@ -679,7 +679,7 @@ export type CustomerCollectionMessageInput = {
 
 export type CustomerCollectionReviewInput = {
   rating: Scalars['String']
-  comment: Scalars['String']
+  comment?: Maybe<Scalars['String']>
 }
 
 export type CustomerSelectAssetInput = {
