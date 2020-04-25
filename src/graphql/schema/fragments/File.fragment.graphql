@@ -6,4 +6,5 @@ fragment File on File {
     customisation {
         backgroundPosition
     }
+    original_s3_key
 }
