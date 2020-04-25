@@ -1,4 +1,3 @@
-#import "./fragments/Message.fragment.graphql"
 mutation customerSendMessage($collection_id: ID!, $input: CustomerMessageInput!) {
     customerSendMessage(collection_id: $collection_id, input: $input) {
         message_id
