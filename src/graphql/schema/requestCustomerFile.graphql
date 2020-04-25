@@ -1,0 +1,6 @@
+#import "./fragments/CustomerFile.fragment.graphql"
+mutation requestCustomerFile($customer_id: ID!, $input: CustomerFileInput!) {
+    requestCustomerFile(customer_id: $customer_id, input: $input) {
+        ...CustomerFile
+    }
+}

@@ -1,10 +1,16 @@
 #import "./fragments/Customer.fragment.graphql"
 #import "./fragments/Collection.fragment.graphql"
+#import "./fragments/CustomerFile.fragment.graphql"
 query showCustomerSelf {
     showCustomerSelf {
         ...Customer
         latestSession {
             ...Collection
+            customer_files {
+                items {
+                    ...CustomerFile
+                }
+            }
         }
     }
 }

@@ -149,6 +149,7 @@ export type Collection = {
   active_customer_phase?: Maybe<CollectionCustomerPhase>
   customer_is_done?: Maybe<Scalars['Boolean']>
   customer_messages?: Maybe<MessageConnection>
+  customer_files?: Maybe<CustomerFileConnection>
   customer_review?: Maybe<CollectionCustomerReview>
 }
 
@@ -237,6 +238,52 @@ export type Message = {
   reply_to?: Maybe<Scalars['String']>
   message?: Maybe<Scalars['String']>
   read_at?: Maybe<Scalars['String']>
+  created_at?: Maybe<Scalars['String']>
+}
+
+export type CustomerFileConnection = {
+  __typename?: 'CustomerFileConnection'
+  items: Array<CustomerFile>
+  nextToken?: Maybe<Scalars['String']>
+}
+
+export type CustomerFile = {
+  __typename?: 'CustomerFile'
+  file_id: Scalars['ID']
+  request_type: CustomerFileRequestType
+  request_timestamp: Scalars['String']
+  requester?: Maybe<Scalars['String']>
+  customer_id: Scalars['String']
+  collection_id?: Maybe<Scalars['String']>
+  collection_segment?: Maybe<CollectionAssetType>
+  is_ready?: Maybe<Scalars['Boolean']>
+  output_result?: Maybe<CustomerFileOutputResult>
+  output_option?: Maybe<CustomerFileOutputOption>
+  input_option: CustomerFileInputOption
+}
+
+export enum CustomerFileRequestType {
+  Zip = 'ZIP',
+  Copy = 'COPY',
+}
+
+export type CustomerFileOutputResult = {
+  __typename?: 'CustomerFileOutputResult'
+  finished_timestamp?: Maybe<Scalars['String']>
+  target_bucket?: Maybe<Scalars['String']>
+  target_paths?: Maybe<Array<Scalars['String']>>
+  error?: Maybe<Scalars['String']>
+}
+
+export type CustomerFileOutputOption = {
+  __typename?: 'CustomerFileOutputOption'
+  zip_file_name?: Maybe<Scalars['String']>
+  additional_path?: Maybe<Scalars['String']>
+}
+
+export type CustomerFileInputOption = {
+  __typename?: 'CustomerFileInputOption'
+  original_paths: Array<Scalars['String']>
 }
 
 export type CollectionCustomerReview = {
@@ -611,45 +658,10 @@ export type CustomerInput = {
   instagram_username?: Maybe<Scalars['String']>
 }
 
-export type CustomerFile = {
-  __typename?: 'CustomerFile'
-  file_id: Scalars['ID']
-  request_type: CustomerFileRequestType
-  request_timestamp: Scalars['String']
-  requester?: Maybe<Scalars['String']>
-  customer_id: Scalars['String']
-  is_ready?: Maybe<Scalars['Boolean']>
-  output_result?: Maybe<CustomerFileOutputResult>
-  output_option?: Maybe<CustomerFileOutputOption>
-  input_option: CustomerFileInputOption
-}
-
-export enum CustomerFileRequestType {
-  Zip = 'ZIP',
-  Copy = 'COPY',
-}
-
-export type CustomerFileOutputResult = {
-  __typename?: 'CustomerFileOutputResult'
-  finished_timestamp?: Maybe<Scalars['String']>
-  target_bucket?: Maybe<Scalars['String']>
-  target_paths?: Maybe<Array<Scalars['String']>>
-  error?: Maybe<Scalars['String']>
-}
-
-export type CustomerFileOutputOption = {
-  __typename?: 'CustomerFileOutputOption'
-  zip_file_name?: Maybe<Scalars['String']>
-  additional_path?: Maybe<Scalars['String']>
-}
-
-export type CustomerFileInputOption = {
-  __typename?: 'CustomerFileInputOption'
-  original_paths: Array<Scalars['String']>
-}
-
 export type CustomerFileInput = {
   request_type: CustomerFileRequestType
+  collection_id?: Maybe<Scalars['String']>
+  collection_segment?: Maybe<CollectionAssetType>
   output_option?: Maybe<CustomerFileOutputOptionInput>
   input_option: CustomerFileInputOptionInput
 }
@@ -682,12 +694,6 @@ export type CustomerSelectAssetInput = {
   asset_id: Scalars['String']
   sort_key: Scalars['String']
   type: CollectionAssetType
-}
-
-export type CustomerFileConnection = {
-  __typename?: 'CustomerFileConnection'
-  items: Array<CustomerFile>
-  nextToken?: Maybe<Scalars['String']>
 }
 
 export enum BannerType {

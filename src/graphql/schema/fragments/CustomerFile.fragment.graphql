@@ -1,0 +1,16 @@
+fragment CustomerFile on CustomerFile {
+    file_id
+    request_type
+    request_timestamp
+    requester
+    customer_id
+    collection_id
+    collection_segment
+    is_ready
+    output_result {
+        finished_timestamp
+        target_bucket
+        target_paths
+        error
+    }
+}
