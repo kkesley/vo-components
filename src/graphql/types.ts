@@ -148,7 +148,7 @@ export type Collection = {
   videoCount?: Maybe<Scalars['Int']>
   active_customer_phase?: Maybe<CollectionCustomerPhase>
   customer_is_done?: Maybe<Scalars['Boolean']>
-  customer_messages?: Maybe<Array<Maybe<CollectionCustomerMessage>>>
+  customer_messages?: Maybe<Array<Maybe<Message>>>
   customer_review?: Maybe<CollectionCustomerReview>
 }
 
@@ -221,10 +221,16 @@ export enum CollectionCustomerPhase {
   EditedAssetsReady = 'EDITED_ASSETS_READY',
 }
 
-export type CollectionCustomerMessage = {
-  __typename?: 'CollectionCustomerMessage'
+export type Message = {
+  __typename?: 'Message'
+  message_id: Scalars['ID']
+  listing_status?: Maybe<Scalars['String']>
+  collection_id?: Maybe<Scalars['String']>
+  customer_id?: Maybe<Scalars['String']>
+  name?: Maybe<Scalars['String']>
+  reply_to?: Maybe<Scalars['String']>
   message?: Maybe<Scalars['String']>
-  timestamp?: Maybe<Scalars['String']>
+  read_at?: Maybe<Scalars['String']>
 }
 
 export type CollectionCustomerReview = {
@@ -305,17 +311,6 @@ export type MessageConnection = {
   __typename?: 'MessageConnection'
   items: Array<Message>
   nextToken?: Maybe<Scalars['String']>
-}
-
-export type Message = {
-  __typename?: 'Message'
-  message_id: Scalars['ID']
-  listing_status?: Maybe<Scalars['String']>
-  created_at?: Maybe<Scalars['String']>
-  name?: Maybe<Scalars['String']>
-  reply_to?: Maybe<Scalars['String']>
-  message?: Maybe<Scalars['String']>
-  read_at?: Maybe<Scalars['String']>
 }
 
 export type CustomerConnection = {
@@ -400,7 +395,7 @@ export type Mutation = {
   deleteCustomer?: Maybe<Customer>
   requestCustomerFile: CustomerFile
   customerUpdateCollectionProgressStatus?: Maybe<Collection>
-  customerSendMessage?: Maybe<Collection>
+  customerSendMessage?: Maybe<Message>
   customerSendReview?: Maybe<Collection>
   customerSelectAsset: CollectionAsset
   customerDeselectAsset?: Maybe<CollectionAsset>
@@ -523,8 +518,7 @@ export type MutationCustomerUpdateCollectionProgressStatusArgs = {
 }
 
 export type MutationCustomerSendMessageArgs = {
-  collection_id: Scalars['ID']
-  input: CustomerCollectionMessageInput
+  input: CustomerMessageInput
 }
 
 export type MutationCustomerSendReviewArgs = {
@@ -673,8 +667,10 @@ export type CustomerCollectionProgressStatusInput = {
   customer_is_done: Scalars['Boolean']
 }
 
-export type CustomerCollectionMessageInput = {
+export type CustomerMessageInput = {
+  listing_status: Scalars['String']
   message: Scalars['String']
+  collection_id: Scalars['String']
 }
 
 export type CustomerCollectionReviewInput = {
@@ -688,13 +684,13 @@ export type CustomerSelectAssetInput = {
   type: CollectionAssetType
 }
 
-export enum BannerType {
-  Video = 'video',
-  Photo = 'photo',
-}
-
 export type CustomerFileConnection = {
   __typename?: 'CustomerFileConnection'
   items: Array<CustomerFile>
   nextToken?: Maybe<Scalars['String']>
+}
+
+export enum BannerType {
+  Video = 'video',
+  Photo = 'photo',
 }

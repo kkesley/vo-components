@@ -6,6 +6,11 @@ query showCustomer($customer_id: ID!) {
         sessions {
             items {
                 ...Collection
+                customer_messages {
+                    message_id
+                    created_at
+                    message
+                }
             }
             nextToken
         }

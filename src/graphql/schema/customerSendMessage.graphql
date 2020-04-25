@@ -1,6 +1,7 @@
-#import "./fragments/Collection.fragment.graphql"
-mutation customerSendMessage($collection_id: ID!, $input: CustomerCollectionMessageInput!) {
+#import "./fragments/Message.fragment.graphql"
+mutation customerSendMessage($collection_id: ID!, $input: CustomerMessageInput!) {
     customerSendMessage(collection_id: $collection_id, input: $input) {
-        ...Collection
+        message_id
+        created_at
     }
 }
