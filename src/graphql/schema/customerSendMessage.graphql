@@ -1,5 +1,5 @@
-mutation customerSendMessage($collection_id: ID!, $input: CustomerMessageInput!) {
-    customerSendMessage(collection_id: $collection_id, input: $input) {
+mutation customerSendMessage($input: CustomerMessageInput!) {
+    customerSendMessage(input: $input) {
         message_id
         created_at
     }
