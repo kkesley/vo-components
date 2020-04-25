@@ -20,6 +20,7 @@ export type Query = {
   showSlug?: Maybe<Slug>
   showProfile?: Maybe<Profile>
   listMessages?: Maybe<MessageConnection>
+  listCollectionMessages?: Maybe<MessageConnection>
   showMessage?: Maybe<Message>
   listCustomers?: Maybe<CustomerConnection>
   showCustomer?: Maybe<Customer>
@@ -72,6 +73,10 @@ export type QueryShowProfileArgs = {
 
 export type QueryListMessagesArgs = {
   listing_status: Scalars['ID']
+}
+
+export type QueryListCollectionMessagesArgs = {
+  collection_id: Scalars['ID']
 }
 
 export type QueryShowMessageArgs = {

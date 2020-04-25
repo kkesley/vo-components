@@ -15,3 +15,6 @@ export const SHOW_LATEST_GOOGLE_ANALYTICS_REPORT = loader(
   './showLatestGoogleAnalyticsReport.graphql'
 )
 export const SHOW_CUSTOMER_SELF = loader('./showCustomerSelf.graphql')
+export const LIST_COLLECTION_MESSAGES = loader(
+  './listCollectionMessages.graphql'
+)

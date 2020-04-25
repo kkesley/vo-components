@@ -1,0 +1,11 @@
+fragment Message on Message {
+    message_id
+    listing_status
+    collection_id
+    customer_id
+    name
+    reply_to
+    message
+    read_at
+    created_at
+}

@@ -1,0 +1,9 @@
+#import "./fragments/Message.fragment.graphql"
+query listCollectionMessages($collection_id: ID!) {
+    listCollectionMessages(collection_id: $collection_id) {
+        items {
+            ...Message
+        }
+        nextToken
+    }
+}
