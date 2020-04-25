@@ -148,7 +148,7 @@ export type Collection = {
   videoCount?: Maybe<Scalars['Int']>
   active_customer_phase?: Maybe<CollectionCustomerPhase>
   customer_is_done?: Maybe<Scalars['Boolean']>
-  customer_messages?: Maybe<Array<Maybe<Message>>>
+  customer_messages?: Maybe<MessageConnection>
   customer_review?: Maybe<CollectionCustomerReview>
 }
 
@@ -219,6 +219,12 @@ export enum CollectionCustomerPhase {
   PickRawAssets = 'PICK_RAW_ASSETS',
   EditingInProgress = 'EDITING_IN_PROGRESS',
   EditedAssetsReady = 'EDITED_ASSETS_READY',
+}
+
+export type MessageConnection = {
+  __typename?: 'MessageConnection'
+  items: Array<Message>
+  nextToken?: Maybe<Scalars['String']>
 }
 
 export type Message = {
@@ -305,12 +311,6 @@ export type LatestWorkCollection = {
   collection_id: Scalars['ID']
   sort_key?: Maybe<Scalars['String']>
   collection?: Maybe<Collection>
-}
-
-export type MessageConnection = {
-  __typename?: 'MessageConnection'
-  items: Array<Message>
-  nextToken?: Maybe<Scalars['String']>
 }
 
 export type CustomerConnection = {
