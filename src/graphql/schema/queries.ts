@@ -18,3 +18,4 @@ export const SHOW_CUSTOMER_SELF = loader('./showCustomerSelf.graphql')
 export const LIST_COLLECTION_MESSAGES = loader(
   './listCollectionMessages.graphql'
 )
+export const LIST_CUSTOMER_FILE = loader('./listCustomerFile.graphql')

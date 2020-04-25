@@ -26,6 +26,7 @@ export type Query = {
   showCustomer?: Maybe<Customer>
   showCustomerSelf?: Maybe<Customer>
   showLatestGoogleAnalyticsReport?: Maybe<GaReportSnapshot>
+  listCustomerFile?: Maybe<CustomerFileConnection>
 }
 
 export type QueryListBannersArgs = {
@@ -93,6 +94,10 @@ export type QueryShowCustomerArgs = {
 
 export type QueryShowLatestGoogleAnalyticsReportArgs = {
   site: Scalars['ID']
+}
+
+export type QueryListCustomerFileArgs = {
+  collection_id: Scalars['ID']
 }
 
 export type BannerConnection = {

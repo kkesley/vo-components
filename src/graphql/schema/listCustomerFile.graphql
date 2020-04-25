@@ -1,0 +1,9 @@
+#import "./fragments/CustomerFile.fragment.graphql"
+query listCustomerFile($collection_id: ID!) {
+    listCustomerFile(collection_id: $collection_id) {
+        items {
+            ...CustomerFile
+        }
+        nextToken
+    }
+}

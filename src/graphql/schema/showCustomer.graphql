@@ -1,24 +1,11 @@
 #import "./fragments/Customer.fragment.graphql"
 #import "./fragments/Collection.fragment.graphql"
-#import "./fragments/CustomerFile.fragment.graphql"
 query showCustomer($customer_id: ID!) {
     showCustomer(customer_id: $customer_id) {
         ...Customer
         sessions {
             items {
                 ...Collection
-                customer_messages {
-                    items {
-                        message_id
-                        created_at
-                        message
-                    }
-                }
-                customer_files {
-                    items {
-                        ...CustomerFile
-                    }
-                }
             }
             nextToken
         }
