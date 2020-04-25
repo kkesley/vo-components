@@ -16,10 +16,6 @@ fragment Collection on Collection {
     active_customer_phase
     customer_id
     customer_is_done
-    customer_messages {
-        message
-        timestamp
-    }
     customer_review {
         rating
         comment
