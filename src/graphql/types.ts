@@ -279,6 +279,7 @@ export type CustomerFile = {
 export enum CustomerFileRequestType {
   Zip = 'ZIP',
   Copy = 'COPY',
+  Upload = 'UPLOAD',
 }
 
 export type CustomerFileOutputResult = {
