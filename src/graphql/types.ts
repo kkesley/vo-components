@@ -165,6 +165,7 @@ export type Collection = {
 
 export type CollectionSegmentsArgs = {
   types?: Maybe<Array<CollectionAssetType>>
+  limit?: Maybe<Scalars['Int']>
 }
 
 export type PortfolioSection = {
@@ -197,6 +198,7 @@ export type CollectionSegment = {
   __typename?: 'CollectionSegment'
   collection_id: Scalars['ID']
   type: CollectionAssetType
+  limit?: Maybe<Scalars['Int']>
   assets?: Maybe<CollectionAssetConnection>
 }
 
@@ -467,6 +469,7 @@ export type Mutation = {
   customerSendReview?: Maybe<Collection>
   customerSelectAsset: CollectionAsset
   customerDeselectAsset?: Maybe<CollectionAsset>
+  deleteCustomerFile?: Maybe<CustomerFile>
 }
 
 export type MutationCreateBannerArgs = {
@@ -600,6 +603,10 @@ export type MutationCustomerSelectAssetArgs = {
 
 export type MutationCustomerDeselectAssetArgs = {
   asset_id: Scalars['ID']
+}
+
+export type MutationDeleteCustomerFileArgs = {
+  file_id: Scalars['ID']
 }
 
 export type BannerInput = {

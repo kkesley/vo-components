@@ -3,7 +3,7 @@
 #import "./fragments/Collection.fragment.graphql"
 #import "./fragments/CollectionAsset.fragment.graphql"
 #import "./fragments/Customer.fragment.graphql"
-query showSlug($type: SlugType!, $slug: ID!, $types: [CollectionAssetType!]) {
+query showSlug($type: SlugType!, $slug: ID!, $types: [CollectionAssetType!], $limit: Int) {
     showSlug(type: $type, slug: $slug) {
         ...Slug
         value {
@@ -30,7 +30,7 @@ query showSlug($type: SlugType!, $slug: ID!, $types: [CollectionAssetType!]) {
                     customer {
                         ...Customer
                     }
-                    segments(types: $types) {
+                    segments(types: $types, limit: $limit) {
                         type
                         assets {
                             items {

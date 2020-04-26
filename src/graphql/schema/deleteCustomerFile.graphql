@@ -1,0 +1,5 @@
+mutation deleteCustomerFile($file_id: ID!) {
+    deleteCustomerFile(file_id: $file_id) {
+        file_id
+    }
+}
