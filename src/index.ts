@@ -24,6 +24,11 @@ export {
   calculateColumnOriginalIndex,
 } from './hooks/useColumns'
 export { default as getMedia, isLocalUrl, MediaType } from './helpers/getMedia'
+export {
+  flattenCustomerFiles,
+  FlatCustomerFile,
+  getFileExtension,
+} from './helpers/customerFiles'
 export * from './graphql/types'
 export * from './graphql/schema/mutations'
 export * from './graphql/schema/queries'
