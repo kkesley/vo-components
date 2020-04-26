@@ -270,6 +270,8 @@ export type CustomerFile = {
   output_result?: Maybe<CustomerFileOutputResult>
   output_option?: Maybe<CustomerFileOutputOption>
   input_option: CustomerFileInputOption
+  type?: Maybe<CustomerFileType>
+  system_identifier?: Maybe<CustomerFileTypeSystemIdentifier>
 }
 
 export enum CustomerFileRequestType {
@@ -294,6 +296,15 @@ export type CustomerFileOutputOption = {
 export type CustomerFileInputOption = {
   __typename?: 'CustomerFileInputOption'
   original_paths: Array<Scalars['String']>
+}
+
+export enum CustomerFileType {
+  SystemGenerated = 'SYSTEM_GENERATED',
+  UserDefined = 'USER_DEFINED',
+}
+
+export enum CustomerFileTypeSystemIdentifier {
+  ZipAll = 'ZIP_ALL',
 }
 
 export type CollectionCustomerReview = {
@@ -674,6 +685,8 @@ export type CustomerFileInput = {
   collection_segment?: Maybe<CollectionAssetType>
   output_option?: Maybe<CustomerFileOutputOptionInput>
   input_option: CustomerFileInputOptionInput
+  type?: Maybe<CustomerFileType>
+  system_identifier?: Maybe<CustomerFileTypeSystemIdentifier>
 }
 
 export type CustomerFileOutputOptionInput = {

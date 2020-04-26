@@ -13,4 +13,6 @@ fragment CustomerFile on CustomerFile {
         target_paths
         error
     }
+    type
+    system_identifier
 }
