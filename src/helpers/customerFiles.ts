@@ -26,24 +26,38 @@ export function flattenCustomerFiles(
   customerFiles: CustomerFile[]
 ): FlatCustomerFile[] {
   return (
-    customerFiles.flatMap<FlatCustomerFile>(
-      (customerFile) =>
-        customerFile.output_result?.target_paths?.map((path) => ({
-          bucket: customerFile.output_result?.target_bucket || undefined,
-          file_path: path,
-          file_name: path.split('/').pop(),
-          file_id: customerFile.file_id,
-          request_type: customerFile.request_type,
-          request_timestamp: customerFile.request_timestamp,
-          requester: customerFile.requester || undefined,
-          customer_id: customerFile.customer_id,
-          collection_id: customerFile.collection_id || undefined,
-          collection_segment: customerFile.collection_segment || undefined,
-          is_ready: customerFile.is_ready || undefined,
-          type: customerFile.type || undefined,
-          system_identifier: customerFile.system_identifier || undefined,
-        })) || []
-    ) || []
+    customerFiles.flatMap<FlatCustomerFile>((customerFile) => {
+      const customerFileCommon = {
+        bucket: customerFile.output_result?.target_bucket || undefined,
+        file_id: customerFile.file_id,
+        request_type: customerFile.request_type,
+        request_timestamp: customerFile.request_timestamp,
+        requester: customerFile.requester || undefined,
+        customer_id: customerFile.customer_id,
+        collection_id: customerFile.collection_id || undefined,
+        collection_segment: customerFile.collection_segment || undefined,
+        is_ready: customerFile.is_ready || false,
+        type: customerFile.type || undefined,
+        system_identifier: customerFile.system_identifier || undefined,
+      }
+      if (customerFile.is_ready) {
+        return (
+          customerFile.output_result?.target_paths?.map((path) => ({
+            ...customerFileCommon,
+            file_path: path,
+            file_name: path.split('/').pop(),
+          })) || []
+        )
+      } else {
+        return [
+          {
+            ...customerFileCommon,
+            file_path: '',
+            file_name: '',
+          },
+        ]
+      }
+    }) || []
   )
 }
 

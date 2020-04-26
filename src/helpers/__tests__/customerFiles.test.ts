@@ -65,6 +65,21 @@ describe('flattenCustomerFiles', () => {
       },
       type: CustomerFileType.UserDefined,
     },
+    {
+      file_id: 'file-c',
+      request_type: CustomerFileRequestType.Zip,
+      request_timestamp: '2020-01-01 02:02',
+      requester: 'kendrick again',
+      customer_id: 'customer-c',
+      collection_id: 'collection-c',
+      collection_segment: CollectionAssetType.ImageRawSelected,
+      is_ready: false,
+      input_option: {
+        original_paths: ['abc.jpg'],
+      },
+      type: CustomerFileType.SystemGenerated,
+      system_identifier: CustomerFileTypeSystemIdentifier.ZipAll,
+    },
   ]
   it('retuns the correct customer files', () => {
     expect(flattenCustomerFiles(customerFiles)).toMatchSnapshot()

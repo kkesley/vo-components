@@ -47,5 +47,20 @@ Array [
     "system_identifier": undefined,
     "type": "USER_DEFINED",
   },
+  Object {
+    "bucket": undefined,
+    "collection_id": "collection-c",
+    "collection_segment": "IMAGE_RAW_SELECTED",
+    "customer_id": "customer-c",
+    "file_id": "file-c",
+    "file_name": "",
+    "file_path": "",
+    "is_ready": false,
+    "request_timestamp": "2020-01-01 02:02",
+    "request_type": "ZIP",
+    "requester": "kendrick again",
+    "system_identifier": "ZIP_ALL",
+    "type": "SYSTEM_GENERATED",
+  },
 ]
 `;
