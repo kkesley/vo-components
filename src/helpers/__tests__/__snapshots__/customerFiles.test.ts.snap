@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`flattenCustomerFiles retuns the correct customer files 1`] = `
+Array [
+  Object {
+    "bucket": "some-bucket",
+    "collection_id": "collection-a",
+    "collection_segment": "IMAGE",
+    "customer_id": "customer-a",
+    "file_id": "file-a",
+    "file_path": "protected/customer-a/misc/abc.jpg",
+    "is_ready": true,
+    "request_timestamp": "2020-01-01 02:02",
+    "request_type": "ZIP",
+    "requester": "kendrick",
+    "system_identifier": "ZIP_ALL",
+    "type": "SYSTEM_GENERATED",
+  },
+  Object {
+    "bucket": "some-bucket",
+    "collection_id": "collection-a",
+    "collection_segment": "IMAGE",
+    "customer_id": "customer-a",
+    "file_id": "file-a",
+    "file_path": "protected/customer-a/misc/cde.zip",
+    "is_ready": true,
+    "request_timestamp": "2020-01-01 02:02",
+    "request_type": "ZIP",
+    "requester": "kendrick",
+    "system_identifier": "ZIP_ALL",
+    "type": "SYSTEM_GENERATED",
+  },
+  Object {
+    "bucket": undefined,
+    "collection_id": "collection-b",
+    "collection_segment": "IMAGE_RAW",
+    "customer_id": "customer-b",
+    "file_id": "file-b",
+    "file_path": "protected/customer-b/misc/pop.zip",
+    "is_ready": true,
+    "request_timestamp": "2020-01-01 02:02",
+    "request_type": "ZIP",
+    "requester": "veronica",
+    "system_identifier": undefined,
+    "type": "USER_DEFINED",
+  },
+]
+`;
