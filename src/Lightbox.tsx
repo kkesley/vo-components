@@ -39,6 +39,7 @@ const styles = {
 interface ILightboxProvider {
   open: (index?: number) => any
   activeIndex: number
+  isOpen: boolean
 }
 
 export const LightboxProvider = React.createContext<ILightboxProvider>(
@@ -96,8 +97,8 @@ export default function Lightbox({
     return undefined
   }, [images, currentIndex])
   const contextValue = React.useMemo(
-    () => ({ open, activeIndex: currentIndex }),
-    [open, currentIndex]
+    () => ({ open, activeIndex: currentIndex, isOpen }),
+    [open, currentIndex, isOpen]
   )
   return (
     <LightboxProvider.Provider value={contextValue}>

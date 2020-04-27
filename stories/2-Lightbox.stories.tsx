@@ -7,13 +7,14 @@ export default {
 }
 
 const LightboxContent = ({ openIndex }: { openIndex?: number }) => {
-  const { open, activeIndex } = useContext(LightboxProvider)
+  const { open, activeIndex, isOpen } = useContext(LightboxProvider)
   return (
     <>
       <button onClick={() => open(openIndex || 0)} className="button">
         Click to open lightbox
       </button>
       <p>Active index: {activeIndex}</p>
+      <p>Is Open: {isOpen ? 'true' : 'false'}</p>
     </>
   )
 }
