@@ -38,3 +38,6 @@ export const CUSTOMER_SELECT_ASSET = loader('./customerSelectAsset.graphql')
 export const CUSTOMER_DESELECT_ASSET = loader('./customerDeselectAsset.graphql')
 export const REQUEST_CUSTOMER_FILE = loader('./requestCustomerFile.graphql')
 export const DELETE_CUSTOMER_FILE = loader('./deleteCustomerFile.graphql')
+export const UPDATE_COLLECTION_ACTIVE_CUSTOMER_PHASE = loader(
+  './updateCollectionActiveCustomerPhase.graphql'
+)

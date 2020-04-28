@@ -1,0 +1,6 @@
+#import "./fragments/Collection.fragment.graphql"
+mutation updateCollectionActiveCustomerPhase($collection_id: ID!, $input: CollectionActiveCustomerPhaseInput!) {
+    updateCollectionActiveCustomerPhase(collection_id: $collection_id, input: $input) {
+        ...Collection
+    }
+}
