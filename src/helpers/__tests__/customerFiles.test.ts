@@ -1,4 +1,8 @@
-import { flattenCustomerFiles, getFileExtension } from '../customerFiles'
+import {
+  flattenCustomerFiles,
+  getFileExtension,
+  getFileS3PathForAmplify,
+} from '../customerFiles'
 import {
   CustomerFile,
   CustomerFileRequestType,
@@ -104,6 +108,30 @@ describe('getFileExtension', () => {
   testCases.forEach((testCase) => {
     it(`returns the correct extension for ${testCase.path}`, () => {
       expect(getFileExtension(testCase.path)).toEqual(testCase.extension)
+    })
+  })
+})
+
+describe('getFileS3PathForAmplify', () => {
+  const testCases = [
+    {
+      original: 'protected/some-customer-id/abc.jpeg',
+      expected: 'abc.jpeg',
+    },
+    {
+      original: 'public/some-customer-id/misc/abc.jpeg',
+      expected: 'misc/abc.jpeg',
+    },
+    {
+      original: 'public/some-customer-id/some/folder/deep/abc.zip',
+      expected: 'some/folder/deep/abc.zip',
+    },
+  ]
+  testCases.forEach((testCase) => {
+    it(`returns the correct value for ${testCase.original}`, () => {
+      expect(getFileS3PathForAmplify(testCase.original)).toEqual(
+        testCase.expected
+      )
     })
   })
 })

@@ -28,6 +28,7 @@ export {
   flattenCustomerFiles,
   FlatCustomerFile,
   getFileExtension,
+  getFileS3PathForAmplify,
 } from './helpers/customerFiles'
 export * from './graphql/types'
 export * from './graphql/schema/mutations'

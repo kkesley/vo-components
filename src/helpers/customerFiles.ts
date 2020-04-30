@@ -64,3 +64,10 @@ export function flattenCustomerFiles(
 export function getFileExtension(file_path: string): string | undefined {
   return file_path.toUpperCase().split('.').pop()
 }
+
+export function getFileS3PathForAmplify(file_path: string) {
+  // file path: protected/[customer:id]/[input-path]/[filename]
+  // we want to get [input-path]/filename because Amplify.Storage automatically adds the first 2 paths
+  // Therefore, we have to remove the first 2 parts of the original path
+  return file_path.split('/').slice(2).join('/')
+}
