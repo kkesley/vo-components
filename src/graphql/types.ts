@@ -247,6 +247,7 @@ export type Message = {
   collection_id?: Maybe<Scalars['String']>
   customer_id?: Maybe<Scalars['String']>
   name?: Maybe<Scalars['String']>
+  type?: Maybe<Scalars['String']>
   reply_to?: Maybe<Scalars['String']>
   message?: Maybe<Scalars['String']>
   read_at?: Maybe<Scalars['String']>
@@ -676,6 +677,7 @@ export type MessageInput = {
   listing_status?: Maybe<Scalars['String']>
   name?: Maybe<Scalars['String']>
   reply_to?: Maybe<Scalars['String']>
+  type?: Maybe<Scalars['String']>
   message?: Maybe<Scalars['String']>
 }
 
