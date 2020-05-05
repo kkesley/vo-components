@@ -41,3 +41,7 @@ export const DELETE_CUSTOMER_FILE = loader('./deleteCustomerFile.graphql')
 export const UPDATE_COLLECTION_ACTIVE_CUSTOMER_PHASE = loader(
   './updateCollectionActiveCustomerPhase.graphql'
 )
+export const CUSTOMER_DOWNLOAD_FINAL_ASSETS = loader(
+  './customerDownloadFinalAssets.graphql'
+)
+export const CUSTOMER_VIEW_TUTORIAL = loader('./customerViewTutorial.graphql')

@@ -1,0 +1,5 @@
+mutation customerDownloadFinalAssets($collection_id: ID!) {
+    customerDownloadFinalAssets(collection_id: $collection_id) {
+        collection_id
+    }
+}

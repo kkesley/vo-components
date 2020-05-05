@@ -21,4 +21,7 @@ fragment Collection on Collection {
         comment
         timestamp
     }
+    download_history {
+        timestamp
+    }
 }

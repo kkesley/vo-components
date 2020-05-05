@@ -8,4 +8,5 @@ fragment Customer on Customer {
     access_key
     description
     created_at
+    is_tutorial_viewed
 }

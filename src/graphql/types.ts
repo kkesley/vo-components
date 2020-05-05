@@ -161,6 +161,7 @@ export type Collection = {
   customer_messages?: Maybe<MessageConnection>
   customer_files?: Maybe<CustomerFileConnection>
   customer_review?: Maybe<CollectionCustomerReview>
+  download_history?: Maybe<Array<CollectionDownload>>
 }
 
 export type CollectionSegmentsArgs = {
@@ -192,6 +193,7 @@ export type Customer = {
   access_key?: Maybe<Scalars['String']>
   latestSession?: Maybe<Collection>
   sessions?: Maybe<CollectionConnection>
+  is_tutorial_viewed?: Maybe<Scalars['Boolean']>
 }
 
 export type CollectionSegment = {
@@ -315,6 +317,11 @@ export type CollectionCustomerReview = {
   __typename?: 'CollectionCustomerReview'
   rating?: Maybe<Scalars['String']>
   comment?: Maybe<Scalars['String']>
+  timestamp?: Maybe<Scalars['String']>
+}
+
+export type CollectionDownload = {
+  __typename?: 'CollectionDownload'
   timestamp?: Maybe<Scalars['String']>
 }
 
@@ -471,6 +478,8 @@ export type Mutation = {
   customerSendReview?: Maybe<Collection>
   customerSelectAsset: CollectionAsset
   customerDeselectAsset?: Maybe<CollectionAsset>
+  customerDownloadFinalAssets?: Maybe<Collection>
+  customerViewTutorial?: Maybe<Customer>
   deleteCustomerFile?: Maybe<CustomerFile>
 }
 
@@ -605,6 +614,10 @@ export type MutationCustomerSelectAssetArgs = {
 
 export type MutationCustomerDeselectAssetArgs = {
   asset_id: Scalars['ID']
+}
+
+export type MutationCustomerDownloadFinalAssetsArgs = {
+  collection_id: Scalars['ID']
 }
 
 export type MutationDeleteCustomerFileArgs = {

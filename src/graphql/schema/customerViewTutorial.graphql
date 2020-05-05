@@ -1,0 +1,5 @@
+mutation customerViewTutorial {
+    customerViewTutorial {
+        customer_id
+    }
+}
