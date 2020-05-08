@@ -1,0 +1,13 @@
+
+query listInstagramPosts {
+    listInstagramPosts {
+        items {
+            id
+            pictureUrl
+            likesCount
+            commentsCount
+            externalUrl
+        }
+        nextToken
+    }
+}

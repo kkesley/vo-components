@@ -26,6 +26,7 @@ export type Query = {
   showCustomer?: Maybe<Customer>
   showCustomerSelf?: Maybe<Customer>
   showLatestGoogleAnalyticsReport?: Maybe<GaReportSnapshot>
+  listInstagramPosts?: Maybe<InstagramPostConnection>
   listCustomerFile?: Maybe<CustomerFileConnection>
 }
 
@@ -444,6 +445,24 @@ export type GaReportDataRow = {
 export type GaReportDataValue = {
   __typename?: 'GAReportDataValue'
   values?: Maybe<Array<Maybe<Scalars['String']>>>
+}
+
+export type InstagramPostConnection = {
+  __typename?: 'InstagramPostConnection'
+  items: Array<InstagramPost>
+  nextToken?: Maybe<Scalars['String']>
+}
+
+export type InstagramPost = {
+  __typename?: 'InstagramPost'
+  id: Scalars['ID']
+  listing_status: Scalars['String']
+  created_time: Scalars['String']
+  pictureUrl?: Maybe<Scalars['String']>
+  likesCount?: Maybe<Scalars['String']>
+  commentsCount?: Maybe<Scalars['String']>
+  caption?: Maybe<Scalars['String']>
+  externalUrl?: Maybe<Scalars['String']>
 }
 
 export type Mutation = {
