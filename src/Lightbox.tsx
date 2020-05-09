@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Modal from './Modal'
 import { style, classes } from 'typestyle'
-import { viewWidth, viewHeight, em } from 'csx'
+import { viewWidth, viewHeight, em, important } from 'csx'
 import colors from './themes/colors'
 import { useState } from 'react'
 import { useKey } from 'react-use'
@@ -30,6 +30,8 @@ const styles = {
     maxWidth: viewWidth(80),
     maxHeight: viewHeight(80),
     objectFit: 'contain',
+    margin: 'auto',
+    width: important('unset'),
   }),
   topLabel: style({
     marginBottom: em(1),
