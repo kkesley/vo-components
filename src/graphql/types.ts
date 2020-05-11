@@ -28,6 +28,7 @@ export type Query = {
   showLatestGoogleAnalyticsReport?: Maybe<GaReportSnapshot>
   listInstagramPosts?: Maybe<InstagramPostConnection>
   listCustomerFile?: Maybe<CustomerFileConnection>
+  customerGetDownloadRequest?: Maybe<CustomerFile>
 }
 
 export type QueryListBannersArgs = {
@@ -99,6 +100,10 @@ export type QueryShowLatestGoogleAnalyticsReportArgs = {
 
 export type QueryListCustomerFileArgs = {
   collection_id: Scalars['ID']
+}
+
+export type QueryCustomerGetDownloadRequestArgs = {
+  file_id: Scalars['ID']
 }
 
 export type BannerConnection = {
@@ -498,6 +503,7 @@ export type Mutation = {
   customerSelectAsset: CollectionAsset
   customerDeselectAsset?: Maybe<CollectionAsset>
   customerDownloadFinalAssets?: Maybe<Collection>
+  customerRequestDownloadIndividualAsset: CustomerFile
   customerViewTutorial?: Maybe<Customer>
   deleteCustomerFile?: Maybe<CustomerFile>
 }
@@ -637,6 +643,10 @@ export type MutationCustomerDeselectAssetArgs = {
 
 export type MutationCustomerDownloadFinalAssetsArgs = {
   collection_id: Scalars['ID']
+}
+
+export type MutationCustomerRequestDownloadIndividualAssetArgs = {
+  asset_id: Scalars['ID']
 }
 
 export type MutationDeleteCustomerFileArgs = {
