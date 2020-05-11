@@ -45,3 +45,6 @@ export const CUSTOMER_DOWNLOAD_FINAL_ASSETS = loader(
   './customerDownloadFinalAssets.graphql'
 )
 export const CUSTOMER_VIEW_TUTORIAL = loader('./customerViewTutorial.graphql')
+export const CUSTOMER_REQUEST_DOWNLOAD_INDIVIDUAL_ASSET = loader(
+  './customerRequestDownloadIndividualAsset.graphql'
+)

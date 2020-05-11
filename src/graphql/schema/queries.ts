@@ -20,3 +20,6 @@ export const LIST_COLLECTION_MESSAGES = loader(
 )
 export const LIST_CUSTOMER_FILE = loader('./listCustomerFile.graphql')
 export const LIST_INSTAGRAM_POSTS = loader('./listInstagramPosts.graphql')
+export const CUSTOMER_GET_DOWNLOAD_REQUEST = loader(
+  './customerGetDownloadRequest.graphql'
+)
