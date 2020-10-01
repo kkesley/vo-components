@@ -1,9 +1,9 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import VideoPlayer from '../VideoPlayer'
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player/lazy'
 
-jest.mock('react-player')
+jest.mock('react-player/lazy')
 
 describe('VideoPlayer', () => {
   it('correctly passes url', () => {
