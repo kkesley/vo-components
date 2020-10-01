@@ -1,5 +1,5 @@
 import * as React from 'react'
-import ReactPlayer, { ReactPlayerProps } from 'react-player'
+import ReactPlayer, { ReactPlayerProps } from 'react-player/lazy'
 import { style, classes } from 'typestyle'
 
 const styles = {
